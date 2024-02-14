@@ -20,7 +20,7 @@ function Navbar({}: Props) {
           <a href='#'>Contact</a>
         </li>
       </ul>
-      <button type='button' className='btn'>
+      <button type='button' className='btn nav-btn'>
         Join Now
       </button>
     </Wrapper>
@@ -40,8 +40,13 @@ const Wrapper = styled.nav`
   .nav-links {
     display: none;
   }
+  .nav-btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    font-weight: bold;
+  }
   @media (min-width: 1024px) {
-    grid-template-columns: 1fr 2fr auto;
+    grid-template-columns: 1fr 3fr auto;
     .nav-links {
       display: flex;
       align-items: center;
