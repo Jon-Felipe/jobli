@@ -1,6 +1,6 @@
 import { JobCategory } from './types';
 
-export const jobCategory: JobCategory[] = [
+export const jobCategories: JobCategory[] = [
   {
     id: 1,
     icon: '',

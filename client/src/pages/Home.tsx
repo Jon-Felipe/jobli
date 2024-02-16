@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
+// components
+import JobCategory from '../components/JobCategory';
+
 // extras
 import heroImg from '../assets/images/hero_img.svg';
+import { jobCategories } from '../utils/constants';
 
 type Props = {};
 
@@ -34,6 +38,9 @@ function Home({}: Props) {
             </p>
           </div>
         </header>
+        {jobCategories.map((jobCategory) => (
+          <JobCategory key={jobCategory.id} {...jobCategory} />
+        ))}
       </section>
     </Wrapper>
   );
