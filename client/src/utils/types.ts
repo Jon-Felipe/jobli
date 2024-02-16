@@ -1,8 +1,8 @@
-import React from 'react';
+import { IconType } from 'react-icons/lib';
 
 export type JobCategory = {
   id: number;
-  icon: React.ReactNode;
+  icon: IconType;
   title: string;
   text: string;
 };

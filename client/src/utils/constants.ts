@@ -1,39 +1,47 @@
 import { JobCategory } from './types';
+import {
+  BsBoxes,
+  BsCodeSlash,
+  BsDropbox,
+  BsMegaphone,
+  BsBarChartLine,
+  BsFileEarmarkText,
+} from 'react-icons/bs';
 
 export const jobCategories: JobCategory[] = [
   {
     id: 1,
-    icon: '',
+    icon: BsBoxes,
     title: 'Design & Creatives',
     text: 'The automated process starts as soon as your clothes go into',
   },
   {
     id: 2,
-    icon: '',
+    icon: BsCodeSlash,
     title: 'Finance',
     text: 'The automated process starts as soon as your clothes go into',
   },
   {
     id: 3,
-    icon: '',
+    icon: BsDropbox,
     title: 'Marketing',
     text: 'The automated process starts as soon as your clothes go into',
   },
   {
     id: 4,
-    icon: '',
+    icon: BsMegaphone,
     title: 'Health/Medical',
     text: 'The automated process starts as soon as your clothes go into',
   },
   {
     id: 5,
-    icon: '',
+    icon: BsBarChartLine,
     title: 'Corporate',
     text: 'The automated process starts as soon as your clothes go into',
   },
   {
     id: 6,
-    icon: '',
+    icon: BsFileEarmarkText,
     title: 'Copywriting',
     text: 'The automated process starts as soon as your clothes go into',
   },
