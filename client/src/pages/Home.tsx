@@ -22,6 +22,19 @@ function Home({}: Props) {
           <img src={heroImg} alt='job search image' />
         </div>
       </section>
+      {/* job category section */}
+      <section className='categories'>
+        <header>
+          <h3>Browse From Top Categories</h3>
+          <div className='categories__text'>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi,
+              minus repellat velit saepe deserunt autem ad alias perspiciatis
+              vero nulla beatae assumenda atque esse quo.
+            </p>
+          </div>
+        </header>
+      </section>
     </Wrapper>
   );
 }
@@ -29,12 +42,11 @@ function Home({}: Props) {
 export default Home;
 
 const Wrapper = styled.div`
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 0 2rem;
   .hero {
+    padding: 2rem;
     display: block;
-    margin-top: 5rem;
+    max-width: 1320px;
+    margin: 80px auto;
   }
   .hero__caption {
     h5 {
@@ -49,9 +61,10 @@ const Wrapper = styled.div`
   }
   .hero__btns {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    column-gap: 2rem;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 1rem;
     button {
+      width: 100%;
       padding: 1rem;
       text-transform: uppercase;
       font-weight: 600;
@@ -60,11 +73,37 @@ const Wrapper = styled.div`
   .hero__image {
     display: none;
   }
+  .categories {
+    text-align: center;
+    background-color: var(--white);
+    padding: 2rem;
+    header {
+      h3 {
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+      }
+      .categories__text {
+        max-width: 800px;
+        margin: 0 auto;
+        p {
+          letter-spacing: 1px;
+          line-height: 25px;
+          color: var(--grey-500);
+        }
+      }
+    }
+  }
   @media (min-width: 1024px) {
     .hero {
       display: grid;
       grid-template-columns: 1fr 1fr;
       column-gap: 4rem;
+    }
+    .hero__btns {
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: 0fr 0fr;
+      column-gap: 2rem;
+      row-gap: 0rem;
     }
     .hero__image {
       display: block;
