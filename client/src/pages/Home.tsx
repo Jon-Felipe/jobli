@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 // components
-import JobCategory from '../components/JobCategory';
+import JobCategoryCard from '../components/JobCategoryCard';
 
 // extras
 import heroImg from '../assets/images/hero_img.svg';
@@ -38,9 +38,11 @@ function Home({}: Props) {
             </p>
           </div>
         </header>
-        {jobCategories.map((jobCategory) => (
-          <JobCategory key={jobCategory.id} {...jobCategory} />
-        ))}
+        <div className='categories__jobs'>
+          {jobCategories.map((jobCategory) => (
+            <JobCategoryCard key={jobCategory.id} jobCategory={jobCategory} />
+          ))}
+        </div>
       </section>
     </Wrapper>
   );
@@ -83,7 +85,7 @@ const Wrapper = styled.div`
   .categories {
     text-align: center;
     background-color: var(--white);
-    padding: 2rem;
+    padding: 4rem 2rem;
     header {
       h3 {
         font-weight: 700;
@@ -99,6 +101,13 @@ const Wrapper = styled.div`
         }
       }
     }
+  }
+  .categories__jobs {
+    display: grid;
+    gap: 2rem;
+    margin: 1rem auto;
+    max-width: 1320px;
+    margin: 80px auto;
   }
   @media (min-width: 1024px) {
     .hero {
@@ -118,6 +127,10 @@ const Wrapper = styled.div`
         width: 100%;
         object-fit: cover;
       }
+    }
+    .categories__jobs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 `;
