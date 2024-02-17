@@ -58,7 +58,7 @@ function Home({}: Props) {
         <h1 className='recent-jobs__subtitle'>Featured Jobs</h1>
         <div className='recent-jobs__cards'>
           {dummy_jobs.map((job) => (
-            <JobCard key={job.id} {...job} />
+            <JobCard key={job.id} job={job} />
           ))}
         </div>
       </section>
