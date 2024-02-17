@@ -51,6 +51,11 @@ function Home({}: Props) {
           <ServiceCard key={service.id} service={service} />
         ))}
       </section>
+      {/* recent jobs */}
+      <section className='recent-jobs'>
+        <h4 className='recent-jobs__title'>Recently Added Jobs</h4>
+        <h1 className='recent-jobs__subtitle'>Featured Jobs</h1>
+      </section>
     </Wrapper>
   );
 }
@@ -124,6 +129,20 @@ const Wrapper = styled.div`
     margin: 50px auto;
     padding: 2rem;
     gap: 2rem;
+  }
+  .recent-jobs {
+    background-color: var(--white);
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  .recent-jobs__title {
+    color: var(--grey-500);
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  .recent-jobs__subtitle {
+    font-weight: 600;
+    font-size: 2.5rem;
   }
   @media (min-width: 1024px) {
     .hero {

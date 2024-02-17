@@ -13,3 +13,14 @@ export type Service = {
   title: string;
   text: string;
 };
+
+type JobNature = 'internship' | 'part-time' | 'full-time';
+
+export type Job = {
+  id: number;
+  title: string;
+  jobDescription: string;
+  location: string;
+  jobNature: JobNature;
+  company: string;
+};

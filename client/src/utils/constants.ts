@@ -1,4 +1,4 @@
-import { JobCategory, Service } from './types';
+import { Job, JobCategory, Service } from './types';
 import {
   BsBoxes,
   BsCodeSlash,
@@ -75,5 +75,62 @@ export const services: Service[] = [
     icon: BsAward,
     title: 'Search Expert Candidates',
     text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
+  },
+];
+
+export const dummy_jobs: Job[] = [
+  {
+    id: 1,
+    title: 'Frontend Developer',
+    jobDescription:
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab delectus impedit laboriosam, temporibus aut eius aliquid, incidunt ad, saepe praesentium deserunt veniam! Repellat fuga numquam in commodi, corporis accusamus explicabo libero quam tempore obcaecati! Facilis, placeat mollitia dolorem voluptatem quae, quo error ut rerum libero, asperiores voluptates repudiandae beatae quod!',
+    location: 'Amsterdam, Netherlands',
+    jobNature: 'full-time',
+    company: 'Facebook',
+  },
+  {
+    id: 2,
+    title: 'Frontend Developer',
+    jobDescription:
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab delectus impedit laboriosam, temporibus aut eius aliquid, incidunt ad, saepe praesentium deserunt veniam! Repellat fuga numquam in commodi, corporis accusamus explicabo libero quam tempore obcaecati! Facilis, placeat mollitia dolorem voluptatem quae, quo error ut rerum libero, asperiores voluptates repudiandae beatae quod!',
+    location: 'Amsterdam, Netherlands',
+    jobNature: 'full-time',
+    company: 'Facebook',
+  },
+  {
+    id: 3,
+    title: 'Frontend Developer',
+    jobDescription:
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab delectus impedit laboriosam, temporibus aut eius aliquid, incidunt ad, saepe praesentium deserunt veniam! Repellat fuga numquam in commodi, corporis accusamus explicabo libero quam tempore obcaecati! Facilis, placeat mollitia dolorem voluptatem quae, quo error ut rerum libero, asperiores voluptates repudiandae beatae quod!',
+    location: 'Amsterdam, Netherlands',
+    jobNature: 'full-time',
+    company: 'Facebook',
+  },
+  {
+    id: 4,
+    title: 'Frontend Developer',
+    jobDescription:
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab delectus impedit laboriosam, temporibus aut eius aliquid, incidunt ad, saepe praesentium deserunt veniam! Repellat fuga numquam in commodi, corporis accusamus explicabo libero quam tempore obcaecati! Facilis, placeat mollitia dolorem voluptatem quae, quo error ut rerum libero, asperiores voluptates repudiandae beatae quod!',
+    location: 'Amsterdam, Netherlands',
+    jobNature: 'full-time',
+    company: 'Facebook',
+  },
+  {
+    id: 5,
+    title: 'Frontend Developer',
+    jobDescription:
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab delectus impedit laboriosam, temporibus aut eius aliquid, incidunt ad, saepe praesentium deserunt veniam! Repellat fuga numquam in commodi, corporis accusamus explicabo libero quam tempore obcaecati! Facilis, placeat mollitia dolorem voluptatem quae, quo error ut rerum libero, asperiores voluptates repudiandae beatae quod!',
+    location: 'Amsterdam, Netherlands',
+    jobNature: 'full-time',
+    company: 'Facebook',
+  },
+  {
+    id: 6,
+    title: 'Frontend Developer',
+    jobDescription:
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab delectus impedit laboriosam, temporibus aut eius aliquid, incidunt ad, saepe praesentium deserunt veniam! Repellat fuga numquam in commodi, corporis accusamus explicabo libero quam tempore obcaecati! Facilis, placeat mollitia dolorem voluptatem quae, quo error ut rerum libero, asperiores voluptates repudiandae beatae quod!',
+    location: 'Amsterdam, Netherlands',
+    jobNature: 'full-time',
+    company: 'Facebook',
   },
 ];
