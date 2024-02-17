@@ -6,3 +6,10 @@ export type JobCategory = {
   title: string;
   text: string;
 };
+
+export type Services = {
+  id: number;
+  icon: IconType;
+  title: string;
+  text: string;
+};

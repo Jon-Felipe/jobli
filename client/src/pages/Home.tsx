@@ -5,7 +5,7 @@ import JobCategoryCard from '../components/JobCategoryCard';
 
 // extras
 import heroImg from '../assets/images/hero_img.svg';
-import { jobCategories } from '../utils/constants';
+import { jobCategories, services } from '../utils/constants';
 
 type Props = {};
 
@@ -43,6 +43,12 @@ function Home({}: Props) {
             <JobCategoryCard key={jobCategory.id} jobCategory={jobCategory} />
           ))}
         </div>
+      </section>
+      {/* services section */}
+      <section className='services'>
+        {services.map((service) => (
+          <p key={service.id}>{service.title}</p>
+        ))}
       </section>
     </Wrapper>
   );
@@ -109,6 +115,13 @@ const Wrapper = styled.div`
     max-width: 1320px;
     margin: 80px auto;
   }
+  .services {
+    max-width: 1320px;
+    margin: 120px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   @media (min-width: 1024px) {
     .hero {
       display: grid;
@@ -131,6 +144,10 @@ const Wrapper = styled.div`
     .categories__jobs {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+    }
+    .services {
+      flex-direction: row;
+      justify-content: space-between;
     }
   }
 `;
