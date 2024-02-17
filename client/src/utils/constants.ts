@@ -1,4 +1,4 @@
-import { JobCategory, Services } from './types';
+import { JobCategory, Service } from './types';
 import {
   BsBoxes,
   BsCodeSlash,
@@ -6,12 +6,8 @@ import {
   BsMegaphone,
   BsBarChartLine,
   BsFileEarmarkText,
-} from 'react-icons/bs';
-import {
   BsPersonVcard,
-  BsFillPersonLinesFill,
   BsPeople,
-  BsBarChart,
   BsGraphUpArrow,
   BsAward,
 } from 'react-icons/bs';
@@ -55,28 +51,28 @@ export const jobCategories: JobCategory[] = [
   },
 ];
 
-export const services: Services[] = [
+export const services: Service[] = [
   {
     id: 1,
-    icon: BsBoxes,
+    icon: BsPersonVcard,
     title: 'Search Millions of Jobs',
     text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
   },
   {
     id: 2,
-    icon: BsCodeSlash,
+    icon: BsPeople,
     title: 'Easy To Manage Jobs',
     text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
   },
   {
     id: 3,
-    icon: BsDropbox,
+    icon: BsGraphUpArrow,
     title: 'Top Careers',
     text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
   },
   {
     id: 4,
-    icon: BsMegaphone,
+    icon: BsAward,
     title: 'Search Expert Candidates',
     text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
   },

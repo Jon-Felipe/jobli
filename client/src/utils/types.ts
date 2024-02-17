@@ -7,7 +7,7 @@ export type JobCategory = {
   text: string;
 };
 
-export type Services = {
+export type Service = {
   id: number;
   icon: IconType;
   title: string;

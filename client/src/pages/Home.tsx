@@ -48,7 +48,7 @@ function Home({}: Props) {
       {/* services section */}
       <section className='services'>
         {services.map((service) => (
-          <ServiceCard key={service.id} {...service} />
+          <ServiceCard key={service.id} service={service} />
         ))}
       </section>
     </Wrapper>
@@ -92,7 +92,7 @@ const Wrapper = styled.div`
   .categories {
     text-align: center;
     background-color: var(--white);
-    padding: 4rem 2rem;
+    padding: 2rem;
     header {
       h3 {
         font-weight: 700;
@@ -117,11 +117,13 @@ const Wrapper = styled.div`
     margin: 80px auto;
   }
   .services {
-    max-width: 1320px;
-    margin: 120px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 1320px;
+    margin: 50px auto;
+    padding: 2rem;
+    gap: 2rem;
   }
   @media (min-width: 1024px) {
     .hero {
