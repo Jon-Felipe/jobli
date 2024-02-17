@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 // components
 import JobCategoryCard from '../components/JobCategoryCard';
+import ServiceCard from '../components/ServiceCard';
 
 // extras
 import heroImg from '../assets/images/hero_img.svg';
@@ -47,7 +48,7 @@ function Home({}: Props) {
       {/* services section */}
       <section className='services'>
         {services.map((service) => (
-          <p key={service.id}>{service.title}</p>
+          <ServiceCard key={service.id} {...service} />
         ))}
       </section>
     </Wrapper>
