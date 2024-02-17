@@ -3,10 +3,11 @@ import styled from 'styled-components';
 // components
 import JobCategoryCard from '../components/JobCategoryCard';
 import ServiceCard from '../components/ServiceCard';
+import JobCard from '../components/JobCard';
 
 // extras
 import heroImg from '../assets/images/hero_img.svg';
-import { jobCategories, services } from '../utils/constants';
+import { dummy_jobs, jobCategories, services } from '../utils/constants';
 
 type Props = {};
 
@@ -55,6 +56,11 @@ function Home({}: Props) {
       <section className='recent-jobs'>
         <h4 className='recent-jobs__title'>Recently Added Jobs</h4>
         <h1 className='recent-jobs__subtitle'>Featured Jobs</h1>
+        <div className='recent-jobs__cards'>
+          {dummy_jobs.map((job) => (
+            <JobCard key={job.id} {...job} />
+          ))}
+        </div>
       </section>
     </Wrapper>
   );
@@ -143,6 +149,9 @@ const Wrapper = styled.div`
   .recent-jobs__subtitle {
     font-weight: 600;
     font-size: 2.5rem;
+  }
+  .recent-jobs__cards {
+    margin: 2rem auto;
   }
   @media (min-width: 1024px) {
     .hero {
