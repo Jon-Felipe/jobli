@@ -1,10 +1,26 @@
+import { useState } from 'react';
 import styled from 'styled-components';
+
+// components
+import Modal from './Modal';
+import Login from './Login';
 
 type Props = {};
 
 function Navbar({}: Props) {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  function handleModalClose() {
+    setIsOpen(false);
+  }
+
   return (
     <Wrapper>
+      {isOpen && (
+        <Modal onClose={handleModalClose}>
+          <Login />
+        </Modal>
+      )}
       <h2>Jobli</h2>
       <ul className='nav-links'>
         <li>
@@ -20,7 +36,11 @@ function Navbar({}: Props) {
           <a href='#'>Contact</a>
         </li>
       </ul>
-      <button type='button' className='btn nav-btn'>
+      <button
+        type='button'
+        className='btn nav-btn'
+        onClick={() => setIsOpen(true)}
+      >
         Join Now
       </button>
     </Wrapper>
