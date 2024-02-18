@@ -248,6 +248,7 @@ button:disabled {
   text-transform: capitalize;
   letter-spacing: var(--letter-spacing);
   line-height: 1.5;
+  text-align: left;
 }
 .form-input,
 .form-textarea,

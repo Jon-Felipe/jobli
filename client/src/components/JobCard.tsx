@@ -63,7 +63,7 @@ const Wrapper = styled.article`
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: capitalize;
-    letter-spacing: 0.5px;
+    letter-spacing: var(--letter-spacing);
   }
   .job__info {
     display: flex;

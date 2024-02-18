@@ -56,7 +56,7 @@ const Wrapper = styled.article`
   }
   .job__text {
     line-height: 30px;
-    letter-spacing: 1px;
+    letter-spacing: var(--letter-spacing);
     color: var(--grey-500);
     margin-bottom: 1rem;
   }

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 // components
 import Modal from './Modal';
-import Login from './Login';
+import LoginRegisterForm from './LoginRegisterForm';
 
 type Props = {};
 
@@ -18,7 +18,7 @@ function Navbar({}: Props) {
     <Wrapper>
       {isOpen && (
         <Modal onClose={handleModalClose}>
-          <Login />
+          <LoginRegisterForm />
         </Modal>
       )}
       <h2>Jobli</h2>

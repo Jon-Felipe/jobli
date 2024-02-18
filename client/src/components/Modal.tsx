@@ -41,7 +41,7 @@ const Wrapper = styled.div`
   .modal__content {
     background-color: var(--white);
     position: relative;
-    min-width: 40rem;
+    min-width: 30rem;
     margin: 0 auto;
     padding: 2rem;
     border-radius: var(--border-radius);

@@ -113,7 +113,7 @@ const Wrapper = styled.div`
         max-width: 800px;
         margin: 0 auto;
         p {
-          letter-spacing: 1px;
+          letter-spacing: var(--letter-spacing);
           line-height: 25px;
           color: var(--grey-500);
         }
