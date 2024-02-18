@@ -1,13 +1,33 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
 type Props = {};
 
 function LoginRegisterForm({}: Props) {
+  const [isRegister, setIsRegister] = useState<boolean>(false);
+
   return (
     <Wrapper>
-      <h3 className='login__title'>Login</h3>
-      <p className='login__subtext'>Enter Login details to get access</p>
+      <h3 className='login__title'>{isRegister ? 'Register' : 'Login'}</h3>
+      <p className='login__subtext'>
+        {isRegister ? 'Create an account ' : 'Enter Login details '}
+        to get access
+      </p>
       <form className='login__form'>
+        {isRegister && (
+          <div className='form-row'>
+            <label htmlFor='name' className='form-label'>
+              Name
+            </label>
+            <input
+              type='text'
+              name='name'
+              id='name'
+              placeholder='Enter Name'
+              className='form-input'
+            />
+          </div>
+        )}
         <div className='form-row'>
           <label htmlFor='email' className='form-label'>
             Email Address
@@ -33,7 +53,16 @@ function LoginRegisterForm({}: Props) {
           />
         </div>
         <div className='login__actions'>
-          <p>Don't have an account? Sign Up here</p>
+          <p>
+            {isRegister ? 'Have an account? ' : ` Don't have an account? `}
+            <span
+              className='login__actions-register'
+              onClick={() => setIsRegister(!isRegister)}
+            >
+              {isRegister ? 'Sign In' : 'Sign Up'}
+            </span>{' '}
+            here
+          </p>
           <button type='submit' className='btn'>
             Login
           </button>
@@ -66,5 +95,9 @@ const Wrapper = styled.section`
       font-size: 0.85rem;
       letter-spacing: var(--letter-spacing);
     }
+  }
+  .login__actions-register {
+    color: var(--primary-500);
+    cursor: pointer;
   }
 `;
