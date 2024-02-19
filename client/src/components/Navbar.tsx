@@ -1,26 +1,11 @@
-import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-
-// components
-import Modal from './Modal';
-import LoginRegisterForm from './LoginRegisterForm';
 
 type Props = {};
 
 function Navbar({}: Props) {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-
-  function handleModalClose() {
-    setIsOpen(false);
-  }
-
   return (
     <Wrapper>
-      {isOpen && (
-        <Modal onClose={handleModalClose}>
-          <LoginRegisterForm />
-        </Modal>
-      )}
       <h2>Jobli</h2>
       <ul className='nav-links'>
         <li>
@@ -36,13 +21,9 @@ function Navbar({}: Props) {
           <a href='#'>Contact</a>
         </li>
       </ul>
-      <button
-        type='button'
-        className='btn nav-btn'
-        onClick={() => setIsOpen(true)}
-      >
+      <Link to='/login' className='btn nav-btn'>
         Join Now
-      </button>
+      </Link>
     </Wrapper>
   );
 }
