@@ -9,16 +9,16 @@ function Navbar({}: Props) {
       <h2>Jobli</h2>
       <ul className='nav-links'>
         <li>
-          <a href='#'>Home</a>
+          <Link to='/'>Home</Link>
         </li>
         <li>
-          <a href='#'>About</a>
+          <Link to='/'>About</Link>
         </li>
         <li>
-          <a href='#'>Job</a>
+          <Link to='/'>Jobs</Link>
         </li>
         <li>
-          <a href='#'>Contact</a>
+          <Link to='/'>Contact</Link>
         </li>
       </ul>
       <Link to='/login' className='btn nav-btn'>
