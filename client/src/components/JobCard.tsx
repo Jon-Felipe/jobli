@@ -40,7 +40,6 @@ const Wrapper = styled.article`
   justify-content: space-between;
   width: 100%;
   border-bottom: 1px solid var(--red-light);
-  max-width: 800px;
   margin: 1rem auto;
   padding: 1rem 0;
   text-align: left;

@@ -54,12 +54,14 @@ function Home({}: Props) {
       </section>
       {/* recent jobs */}
       <section className='recent-jobs'>
-        <h4 className='recent-jobs__title'>Recently Added Jobs</h4>
-        <h1 className='recent-jobs__subtitle'>Featured Jobs</h1>
-        <div className='recent-jobs__cards'>
-          {dummy_jobs.map((job) => (
-            <JobCard key={job.id} job={job} />
-          ))}
+        <div className='recent-jobs__content'>
+          <h4 className='recent-jobs__title'>Recently Added Jobs</h4>
+          <h1 className='recent-jobs__subtitle'>Featured Jobs</h1>
+          <div className='recent-jobs__cards'>
+            {dummy_jobs.map((job) => (
+              <JobCard key={job.id} job={job} />
+            ))}
+          </div>
         </div>
       </section>
     </Wrapper>
@@ -140,6 +142,10 @@ const Wrapper = styled.div`
     background-color: var(--white);
     padding: 4rem 2rem;
     text-align: center;
+  }
+  .recent-jobs__content {
+    max-width: 800px;
+    margin: 0 auto;
   }
   .recent-jobs__title {
     color: var(--grey-500);
