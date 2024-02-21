@@ -5,6 +5,7 @@ import MainLayout from './pages/MainLayout';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Jobs from './pages/Jobs';
 
 const router = createBrowserRouter([
   {
@@ -12,16 +13,20 @@ const router = createBrowserRouter([
     element: <MainLayout />,
     children: [
       {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: '/jobs',
+        element: <Jobs />,
+      },
+      {
         path: '/login',
         element: <Login />,
       },
       {
         path: '/register',
         element: <Register />,
-      },
-      {
-        index: true,
-        element: <Home />,
       },
     ],
   },

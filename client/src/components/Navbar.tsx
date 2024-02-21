@@ -15,7 +15,7 @@ function Navbar({}: Props) {
           <Link to='/'>About</Link>
         </li>
         <li>
-          <Link to='/'>Jobs</Link>
+          <Link to='/jobs'>Jobs</Link>
         </li>
         <li>
           <Link to='/'>Contact</Link>
