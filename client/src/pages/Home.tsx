@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 // components
 import JobCategoryCard from '../components/JobCategoryCard';
@@ -20,7 +21,9 @@ function Home({}: Props) {
           <h5>Easiest way to find a perfect job</h5>
           <h1>Find Your Next Dream Job</h1>
           <div className='hero__btns'>
-            <button className='btn'>Looking For A Job?</button>
+            <Link to='/jobs' className='btn'>
+              Looking For A Job?
+            </Link>
             <button className='btn'>Find Talent</button>
           </div>
         </div>
@@ -92,7 +95,9 @@ const Wrapper = styled.div`
     display: grid;
     grid-template-rows: 1fr 1fr;
     row-gap: 1rem;
-    button {
+    button,
+    a {
+      text-align: center;
       width: 100%;
       padding: 1rem;
       text-transform: uppercase;

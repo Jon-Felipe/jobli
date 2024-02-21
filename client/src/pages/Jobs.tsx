@@ -1,6 +1,10 @@
 import styled from 'styled-components';
-import { dummy_jobs } from '../utils/constants';
+
+// components
 import JobCard from '../components/JobCard';
+
+// extras
+import { dummy_jobs } from '../utils/constants';
 
 type Props = {};
 
