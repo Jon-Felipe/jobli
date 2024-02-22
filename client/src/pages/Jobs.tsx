@@ -1,3 +1,4 @@
+import { BsFilter } from 'react-icons/bs';
 import styled from 'styled-components';
 
 // components
@@ -11,7 +12,15 @@ type Props = {};
 function Jobs({}: Props) {
   return (
     <Wrapper>
-      <section className='filters'>job filters</section>
+      <section className='filters'>
+        <div className='filters__header'>
+          <BsFilter />
+          <p>Filter Jobs</p>
+        </div>
+        <div className='filters__content'>
+          <h3>Job Category</h3>
+        </div>
+      </section>
       <section className='jobs'>
         <div className='jobs__header'>
           <p>39, 782 Jobs found</p>
@@ -45,6 +54,26 @@ const Wrapper = styled.div`
   display: grid;
   .filters {
     margin-bottom: 2rem;
+  }
+  .filters__header {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    margin-bottom: 2rem;
+    svg {
+      width: 30px;
+      height: 30px;
+      color: var(--green);
+    }
+    p {
+      font-size: 1.25rem;
+      letter-spacing: var(--letter-spacing);
+    }
+  }
+  .filters__content {
+    h3 {
+      font-size: 1.5rem;
+    }
   }
   .jobs__header {
     display: flex;
