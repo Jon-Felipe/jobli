@@ -15,7 +15,15 @@ function Jobs({}: Props) {
       <section className='jobs'>
         <div className='jobs__header'>
           <p>39, 782 Jobs found</p>
-          <div className='jobs__sort'>Sort by</div>
+          <div className='jobs__sort'>
+            <p>Sort by</p>
+            <select name='sort' id='sort'>
+              <option value='newest'>Newest</option>
+              <option value='oldest'>Oldest</option>
+              <option value='a-z'>A-Z</option>
+              <option value='z-a'>Z-A</option>
+            </select>
+          </div>
         </div>
         <div className='jobs__content'>
           {dummy_jobs.map((job) => (
@@ -43,6 +51,17 @@ const Wrapper = styled.div`
     align-items: center;
     justify-content: space-between;
     margin-bottom: 2rem;
+  }
+  .jobs__sort {
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+    select {
+      padding: 0.25rem 0.75rem;
+      border: 1px solid var(--grey-200);
+      border-radius: var(--border-radius);
+      cursor: pointer;
+    }
   }
   @media (min-width: 1024px) {
     grid-template-columns: 300px 1fr;
