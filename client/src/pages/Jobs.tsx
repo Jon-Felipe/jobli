@@ -18,7 +18,16 @@ function Jobs({}: Props) {
           <p>Filter Jobs</p>
         </div>
         <div className='filters__content'>
-          <h3>Job Category</h3>
+          <div className='filters__content-catgory'>
+            <h3>Job Category</h3>
+            <select name='category' id='category'>
+              <option value='all'>All Categories</option>
+              <option value='development'>Development</option>
+              <option value='design'>Design</option>
+              <option value='sales'>Sales</option>
+              <option value='property'>Real Estate</option>
+            </select>
+          </div>
         </div>
       </section>
       <section className='jobs'>
@@ -71,8 +80,20 @@ const Wrapper = styled.div`
     }
   }
   .filters__content {
+    border: 1px solid var(--grey-200);
+    padding: 1.25rem;
+    border-radius: var(--border-radius);
+  }
+  .filters__content-catgory {
     h3 {
       font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    select {
+      width: 100%;
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--grey-200);
+      cursor: pointer;
     }
   }
   .jobs__header {
