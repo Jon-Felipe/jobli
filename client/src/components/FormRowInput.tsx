@@ -24,7 +24,7 @@ const Wrapper = styled.div`
   label {
     display: block;
     text-transform: capitalize;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: var(--grey-600);
     letter-spacing: var(--letter-spacing);
     margin-bottom: 1rem;
