@@ -1,60 +1,34 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+// components
+import FormRowInput from '../components/FormRowInput';
+
 const Register = () => {
   return (
     <Wrapper>
       <h3 className='register__title'>Register</h3>
       <p className='register__subtext'>Create an account to get full access</p>
       <form>
-        <div className='form-row'>
-          <label htmlFor='name' className='form-label'>
-            Name
-          </label>
-          <input
-            type='text'
-            name='name'
-            id='name'
-            placeholder='Name'
-            className='form-input'
-          />
-        </div>
-        <div className='form-row'>
-          <label htmlFor='email' className='form-label'>
-            Email Address
-          </label>
-          <input
-            type='email'
-            name='email'
-            id='email'
-            placeholder='Email Address'
-            className='form-input'
-          />
-        </div>
-        <div className='form-row'>
-          <label htmlFor='password' className='form-label'>
-            Password
-          </label>
-          <input
-            type='password'
-            name='password'
-            id='password'
-            placeholder='Enter Password'
-            className='form-input'
-          />
-        </div>
-        <div className='form-row'>
-          <label htmlFor='confirmPassword' className='form-label'>
-            Confirm Password
-          </label>
-          <input
-            type='password'
-            name='confirmPassword'
-            id='confirmPassword'
-            placeholder='Confirm Password'
-            className='form-input'
-          />
-        </div>
+        <FormRowInput name='name' type='text' placeholder='name' />
+        <FormRowInput
+          label='email address'
+          name='email'
+          type='email'
+          placeholder='email address'
+        />
+        <FormRowInput
+          label='password'
+          name='password'
+          type='password'
+          placeholder='password'
+        />
+        <FormRowInput
+          label='confirm password'
+          name='confirmPassword'
+          type='password'
+          placeholder='confirm password'
+        />
         <div className='register__actions'>
           <p>
             Already have an account?{' '}

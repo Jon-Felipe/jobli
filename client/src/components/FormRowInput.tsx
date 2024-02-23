@@ -38,5 +38,6 @@ const Wrapper = styled.div`
     background-color: var(--grey-50);
     font-size: 0.85rem;
     letter-spacing: var(--letter-spacing);
+    text-transform: capitalize;
   }
 `;
