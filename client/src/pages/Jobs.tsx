@@ -18,6 +18,7 @@ function Jobs({}: Props) {
           <p>Filter Jobs</p>
         </div>
         <div className='filters__content'>
+          {/* job category filter */}
           <div className='filters__content-catgory'>
             <h3>Job Category</h3>
             <select name='category' id='category'>
@@ -27,6 +28,26 @@ function Jobs({}: Props) {
               <option value='sales'>Sales</option>
               <option value='property'>Real Estate</option>
             </select>
+          </div>
+          {/* job type filter */}
+          <div className='filters__content-type'>
+            <h3>Job Type</h3>
+            <div>
+              <input type='checkbox' name='fullTime' id='fullTime' />
+              <label htmlFor='fullTime'>Full Time</label>
+            </div>
+            <div>
+              <input type='checkbox' name='partTime' id='partTime' />
+              <label htmlFor='partTime'>Part Time</label>
+            </div>
+            <div>
+              <input type='checkbox' name='remote' id='remote' />
+              <label htmlFor='remote'>Remote</label>
+            </div>
+            <div>
+              <input type='checkbox' name='freelance' id='freelance' />
+              <label htmlFor='freelance'>Freelance</label>
+            </div>
           </div>
         </div>
       </section>
@@ -83,8 +104,10 @@ const Wrapper = styled.div`
     border: 1px solid var(--grey-200);
     padding: 1.25rem;
     border-radius: var(--border-radius);
+    background-color: var(--white);
   }
   .filters__content-catgory {
+    margin-bottom: 1.5rem;
     h3 {
       font-size: 1.5rem;
       margin-bottom: 1rem;
@@ -94,6 +117,22 @@ const Wrapper = styled.div`
       padding: 0.5rem 1rem;
       border: 1px solid var(--grey-200);
       cursor: pointer;
+    }
+  }
+  .filters__content-type {
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    input {
+      width: 20px;
+      height: 20px;
+      margin-right: 0.5rem;
+      cursor: pointer;
+    }
+    label {
+      font-size: 1.25rem;
+      letter-spacing: var(--letter-spacing);
     }
   }
   .jobs__header {
