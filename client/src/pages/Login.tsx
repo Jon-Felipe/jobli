@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+// components
+import FormRowInput from '../components/FormRowInput';
+
 type Props = {};
 
 function Login({}: Props) {
@@ -9,30 +12,13 @@ function Login({}: Props) {
       <h3 className='login__title'>Login</h3>
       <p className='login__subtext'>Enter Login details to get acccess</p>
       <form>
-        <div className='form-row'>
-          <label htmlFor='email' className='form-label'>
-            Email Address
-          </label>
-          <input
-            type='email'
-            name='email'
-            id='email'
-            placeholder='Email Address'
-            className='form-input'
-          />
-        </div>
-        <div className='form-row'>
-          <label htmlFor='password' className='form-label'>
-            Password
-          </label>
-          <input
-            type='password'
-            name='password'
-            id='password'
-            placeholder='Enter Password'
-            className='form-input'
-          />
-        </div>
+        <FormRowInput
+          label='email address'
+          name='email'
+          type='email'
+          placeholder='Email Address'
+        />
+        <FormRowInput name='password' type='password' placeholder='Password' />
         <div className='login__actions'>
           <p>
             Don't have an account?{' '}
