@@ -1,4 +1,4 @@
-import { Job, JobCategory, Service } from './types';
+import { Job, JobCategory, Service, Sort } from './types';
 import {
   BsBoxes,
   BsCodeSlash,
@@ -132,5 +132,24 @@ export const dummy_jobs: Job[] = [
     location: 'Amsterdam, Netherlands',
     jobNature: 'full-time',
     company: 'Facebook',
+  },
+];
+
+export const sortOptions: Sort[] = [
+  {
+    id: 1,
+    text: 'newest',
+  },
+  {
+    id: 2,
+    text: 'oldest',
+  },
+  {
+    id: 3,
+    text: 'a-z',
+  },
+  {
+    id: 4,
+    text: 'z-a',
   },
 ];

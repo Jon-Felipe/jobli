@@ -24,3 +24,8 @@ export type Job = {
   jobNature: JobNature;
   company: string;
 };
+
+export type Sort = {
+  id: number;
+  text: string;
+};
