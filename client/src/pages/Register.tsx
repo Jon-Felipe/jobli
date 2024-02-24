@@ -10,7 +10,18 @@ const Register = () => {
       <h3 className='register__title'>Register</h3>
       <p className='register__subtext'>Create an account to get full access</p>
       <form>
-        <FormRowInput name='name' type='text' placeholder='name' />
+        <FormRowInput
+          label='first name'
+          name='firstName'
+          type='text'
+          placeholder='first name'
+        />
+        <FormRowInput
+          label='last name'
+          name='lastName'
+          type='text'
+          placeholder='last name'
+        />
         <FormRowInput
           label='email address'
           name='email'
