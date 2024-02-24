@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 // components
 import JobCard from '../components/JobCard';
+import Select from '../components/Select';
 
 // extras
 import { dummy_jobs } from '../utils/constants';
@@ -19,16 +20,7 @@ function Jobs({}: Props) {
         </div>
         <div className='filters__content'>
           {/* job category filter */}
-          <div className='filters__content-catgory'>
-            <h3>Job Category</h3>
-            <select name='category' id='category'>
-              <option value='all'>All Categories</option>
-              <option value='development'>Development</option>
-              <option value='design'>Design</option>
-              <option value='sales'>Sales</option>
-              <option value='property'>Real Estate</option>
-            </select>
-          </div>
+          <Select />
           {/* job type filter */}
           <div className='filters__content-type'>
             <h3>Job Type</h3>
