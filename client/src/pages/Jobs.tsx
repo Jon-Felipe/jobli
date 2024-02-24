@@ -6,7 +6,7 @@ import JobCard from '../components/JobCard';
 import Select from '../components/Select';
 
 // extras
-import { dummy_jobs, jobCategories } from '../utils/constants';
+import { dummy_jobs, jobCategories, sortOptions } from '../utils/constants';
 
 type Props = {};
 
@@ -50,13 +50,10 @@ function Jobs({}: Props) {
         <div className='jobs__header'>
           <p>39, 782 Jobs found</p>
           <div className='jobs__sort'>
-            <p>Sort by</p>
-            <select name='sort' id='sort'>
-              <option value='newest'>Newest</option>
-              <option value='oldest'>Oldest</option>
-              <option value='a-z'>A-Z</option>
-              <option value='z-a'>Z-A</option>
-            </select>
+            <div className='jobs__sort-text'>
+              <h6>Sort by</h6>
+            </div>
+            <Select name='sort' values={sortOptions} />
           </div>
         </div>
         <div className='jobs__content'>
@@ -134,11 +131,12 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     column-gap: 0.5rem;
-    select {
-      padding: 0.25rem 0.75rem;
-      border: 1px solid var(--grey-200);
-      border-radius: var(--border-radius);
-      cursor: pointer;
+  }
+  .jobs__sort-text {
+    width: 80px;
+    h6 {
+      font-size: 0.9rem;
+      font-weight: 600;
     }
   }
   @media (min-width: 1024px) {

@@ -16,6 +16,11 @@ export type Service = {
 
 type JobNature = 'internship' | 'part-time' | 'full-time';
 
+export type Select = {
+  id: number;
+  title: string;
+};
+
 export type Job = {
   id: number;
   title: string;
@@ -27,5 +32,5 @@ export type Job = {
 
 export type Sort = {
   id: number;
-  text: string;
+  title: string;
 };

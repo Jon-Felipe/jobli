@@ -1,18 +1,18 @@
 import styled from 'styled-components';
 
 // extras
-import { JobCategory } from '../utils/types';
+import { Select as SelectType } from '../utils/types';
 
 type Props = {
   name: string;
-  values: JobCategory[];
+  values: SelectType[];
 };
 
 function Select({ name, values }: Props) {
   return (
     <Wrapper name={name} id={name}>
-      {values.map((item, i) => (
-        <option key={i}>{item.title}</option>
+      {values.map((item) => (
+        <option key={item.id}>{item.title}</option>
       ))}
     </Wrapper>
   );

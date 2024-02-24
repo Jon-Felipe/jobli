@@ -138,18 +138,18 @@ export const dummy_jobs: Job[] = [
 export const sortOptions: Sort[] = [
   {
     id: 1,
-    text: 'newest',
+    title: 'newest',
   },
   {
     id: 2,
-    text: 'oldest',
+    title: 'oldest',
   },
   {
     id: 3,
-    text: 'a-z',
+    title: 'a-z',
   },
   {
     id: 4,
-    text: 'z-a',
+    title: 'z-a',
   },
 ];
