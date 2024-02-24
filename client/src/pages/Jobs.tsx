@@ -4,6 +4,7 @@ import styled from 'styled-components';
 // components
 import JobCard from '../components/JobCard';
 import Select from '../components/Select';
+import Checkbox from '../components/Checkbox';
 
 // extras
 import { categoryOptions, dummy_jobs, sortOptions } from '../utils/constants';
@@ -13,6 +14,7 @@ type Props = {};
 function Jobs({}: Props) {
   return (
     <Wrapper>
+      {/* job filters */}
       <section className='filters'>
         <div className='filters__header'>
           <BsFilter />
@@ -27,25 +29,14 @@ function Jobs({}: Props) {
           {/* job type filter */}
           <div className='filters__content-type'>
             <h3>Job Type</h3>
-            <div>
-              <input type='checkbox' name='fullTime' id='fullTime' />
-              <label htmlFor='fullTime'>Full Time</label>
-            </div>
-            <div>
-              <input type='checkbox' name='partTime' id='partTime' />
-              <label htmlFor='partTime'>Part Time</label>
-            </div>
-            <div>
-              <input type='checkbox' name='remote' id='remote' />
-              <label htmlFor='remote'>Remote</label>
-            </div>
-            <div>
-              <input type='checkbox' name='freelance' id='freelance' />
-              <label htmlFor='freelance'>Freelance</label>
-            </div>
+            <Checkbox label='Full Time' name='fullTime' />
+            <Checkbox label='Part Time' name='partTime' />
+            <Checkbox name='remote' />
+            <Checkbox name='freelance' />
           </div>
         </div>
       </section>
+      {/* jobs */}
       <section className='jobs'>
         <div className='jobs__header'>
           <p>39, 782 Jobs found</p>
@@ -108,17 +99,7 @@ const Wrapper = styled.div`
   .filters__content-type {
     h3 {
       font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    input {
-      width: 20px;
-      height: 20px;
-      margin-right: 0.5rem;
-      cursor: pointer;
-    }
-    label {
-      font-size: 1.25rem;
-      letter-spacing: var(--letter-spacing);
+      margin-bottom: 1.25rem;
     }
   }
   .jobs__header {
