@@ -3,6 +3,9 @@ const app = express();
 
 const PORT = 5000;
 
+// middleware
+app.use(express.json());
+
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
