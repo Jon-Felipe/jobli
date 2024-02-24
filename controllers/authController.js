@@ -4,3 +4,10 @@
 export const register = async (req, res) => {
   res.send('register');
 };
+
+// @desc    Login user
+// @route   Post /api/v1/auth/login
+// @access  Public
+export const login = async (req, res) => {
+  res.send('login');
+};
