@@ -1,7 +1,7 @@
+import * as dotenv from 'dotenv';
+dotenv.config();
 import express from 'express';
 const app = express();
-
-const PORT = 5000;
 
 // middleware
 app.use(express.json());
@@ -10,4 +10,6 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-app.listen(PORT, () => console.log(`server running on port ${PORT}`));
+const PORT = process.env.PORT || 5100;
+
+app.listen(PORT, () => console.log(`server running on port ${PORT}...`));
