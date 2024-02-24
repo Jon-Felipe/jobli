@@ -6,7 +6,7 @@ import JobCard from '../components/JobCard';
 import Select from '../components/Select';
 
 // extras
-import { dummy_jobs, jobCategories, sortOptions } from '../utils/constants';
+import { categoryOptions, dummy_jobs, sortOptions } from '../utils/constants';
 
 type Props = {};
 
@@ -22,7 +22,7 @@ function Jobs({}: Props) {
           {/* job category filter */}
           <div className='filters__content-catgory'>
             <h3>Job Category</h3>
-            <Select name='category' values={jobCategories} />
+            <Select name='category' values={categoryOptions} />
           </div>
           {/* job type filter */}
           <div className='filters__content-type'>

@@ -1,4 +1,4 @@
-import { Job, JobCategory, Service, Sort } from './types';
+import { Category, Job, JobCategory, Service, Sort } from './types';
 import {
   BsBoxes,
   BsCodeSlash,
@@ -151,5 +151,24 @@ export const sortOptions: Sort[] = [
   {
     id: 4,
     title: 'z-a',
+  },
+];
+
+export const categoryOptions: Category[] = [
+  {
+    id: 1,
+    title: 'all',
+  },
+  {
+    id: 2,
+    title: 'development',
+  },
+  {
+    id: 3,
+    title: 'design',
+  },
+  {
+    id: 4,
+    title: 'finance',
   },
 ];

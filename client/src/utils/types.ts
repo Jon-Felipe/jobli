@@ -34,3 +34,8 @@ export type Sort = {
   id: number;
   title: string;
 };
+
+export type Category = {
+  id: number;
+  title: string;
+};
