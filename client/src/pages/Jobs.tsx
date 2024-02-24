@@ -83,12 +83,12 @@ const Wrapper = styled.div`
     column-gap: 1rem;
     margin-bottom: 2rem;
     svg {
-      width: 30px;
-      height: 30px;
+      width: 35px;
+      height: 35px;
       color: var(--green);
     }
     p {
-      font-size: 1.25rem;
+      font-size: 1.5rem;
       letter-spacing: var(--letter-spacing);
     }
   }
@@ -138,6 +138,12 @@ const Wrapper = styled.div`
       font-size: 0.9rem;
       font-weight: 600;
     }
+  }
+  .jobs__content {
+    background-color: var(--white);
+    padding: 1.25rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--grey-200);
   }
   @media (min-width: 1024px) {
     grid-template-columns: 300px 1fr;

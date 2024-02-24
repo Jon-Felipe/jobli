@@ -40,8 +40,8 @@ const Wrapper = styled.article`
   justify-content: space-between;
   width: 100%;
   border-bottom: 1px solid var(--red-light);
-  margin: 1rem auto;
-  padding: 1rem 0;
+  margin: 0 auto 1rem;
+  padding: 0 0 1rem;
   text-align: left;
   .job__content {
     margin-bottom: 1rem;
