@@ -15,6 +15,14 @@ app.get('/', (req, res) => {
 
 app.use('/api/v1/auth', authRoutes);
 
+app.use('*', (req, res) => {
+  res.status(404).json({ msg: 'not found' });
+});
+
+app.use((err, req, res, next) => {
+  res.status(500).json({ msg: 'something went wrong' });
+});
+
 const PORT = process.env.PORT || 5100;
 
 app.listen(PORT, () => console.log(`server running on port ${PORT}...`));
