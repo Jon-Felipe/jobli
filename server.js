@@ -3,6 +3,7 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 import express from 'express';
 const app = express();
+import { StatusCodes } from 'http-status-codes';
 
 // routers
 import authRoutes from './routes/authRoutes.js';
@@ -17,11 +18,13 @@ app.get('/', (req, res) => {
 app.use('/api/v1/auth', authRoutes);
 
 app.use('*', (req, res) => {
-  res.status(404).json({ msg: 'not found' });
+  res.status(StatusCodes.NOT_FOUND).json({ msg: 'not found' });
 });
 
 app.use((err, req, res, next) => {
-  res.status(500).json({ msg: 'something went wrong' });
+  res
+    .status(StatusCodes.INTERNAL_SERVER_ERROR)
+    .json({ msg: 'something went wrong' });
 });
 
 const PORT = process.env.PORT || 5100;
