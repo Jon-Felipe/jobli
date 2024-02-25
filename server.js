@@ -9,6 +9,8 @@ import { StatusCodes } from 'http-status-codes';
 import authRoutes from './routes/authRoutes.js';
 
 // middleware
+import errorHandlerMiddleware from './middleware/errorHandlerMiddleware.js';
+
 app.use(express.json());
 
 app.get('/', (req, res) => {
@@ -21,11 +23,7 @@ app.use('*', (req, res) => {
   res.status(StatusCodes.NOT_FOUND).json({ msg: 'not found' });
 });
 
-app.use((err, req, res, next) => {
-  res
-    .status(StatusCodes.INTERNAL_SERVER_ERROR)
-    .json({ msg: 'something went wrong' });
-});
+app.use(errorHandlerMiddleware);
 
 const PORT = process.env.PORT || 5100;
 
