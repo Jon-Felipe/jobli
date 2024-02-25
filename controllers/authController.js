@@ -2,6 +2,7 @@ import { StatusCodes } from 'http-status-codes';
 
 // extras
 import User from '../models/UserModel.js';
+import { NotFoundError } from '../errors/customErrors.js';
 
 // @desc    Register user
 // @route   Post /api/v1/auth/register
