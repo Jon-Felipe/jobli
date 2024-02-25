@@ -7,8 +7,17 @@ import User from '../models/UserModel.js';
 // @route   Post /api/v1/auth/register
 // @access  Public
 export const register = async (req, res) => {
-  await User.create(req.body);
-  res.status(StatusCodes.OK).json({ msg: 'user created' });
+  const { firstName, lastName, email, password } = req.body;
+
+  const userExists = await User.findOne({ email });
+  if (userExists) {
+    return res
+      .status(StatusCodes.BAD_REQUEST)
+      .json({ msg: 'User already exists' });
+  }
+
+  const user = await User.create({ firstName, lastName, email, password });
+  res.status(StatusCodes.OK).json({ user, msg: 'user created' });
 };
 
 // @desc    Login user
