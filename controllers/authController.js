@@ -2,7 +2,7 @@ import { StatusCodes } from 'http-status-codes';
 
 // extras
 import User from '../models/UserModel.js';
-import { NotFoundError } from '../errors/customErrors.js';
+import { BadRequestError } from '../errors/customErrors.js';
 
 // @desc    Register user
 // @route   Post /api/v1/auth/register
@@ -11,11 +11,7 @@ export const register = async (req, res) => {
   const { firstName, lastName, email, password } = req.body;
 
   const userExists = await User.findOne({ email });
-  if (userExists) {
-    return res
-      .status(StatusCodes.BAD_REQUEST)
-      .json({ msg: 'User already exists' });
-  }
+  if (userExists) throw new BadRequestError('User already exists');
 
   const user = await User.create({ firstName, lastName, email, password });
   res.status(StatusCodes.OK).json({ user, msg: 'user created' });
