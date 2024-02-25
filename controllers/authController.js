@@ -14,7 +14,7 @@ export const register = async (req, res) => {
   if (userExists) throw new BadRequestError('User already exists');
 
   const user = await User.create({ firstName, lastName, email, password });
-  res.status(StatusCodes.OK).json({ user, msg: 'user created' });
+  res.status(StatusCodes.CREATED).json({ user, msg: 'user created' });
 };
 
 // @desc    Login user
