@@ -1,5 +1,5 @@
 // extras
-import User from '../models/UserModel';
+import User from '../models/UserModel.js';
 
 // @desc    Register user
 // @route   Post /api/v1/auth/register
