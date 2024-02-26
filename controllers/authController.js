@@ -2,7 +2,6 @@ import { StatusCodes } from 'http-status-codes';
 
 // extras
 import User from '../models/UserModel.js';
-import { BadRequestError } from '../errors/customErrors.js';
 
 // @desc    Register user
 // @route   Post /api/v1/auth/register
