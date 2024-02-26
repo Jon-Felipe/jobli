@@ -2,6 +2,7 @@ import { StatusCodes } from 'http-status-codes';
 
 // extras
 import User from '../models/UserModel.js';
+import attachCookie from '../utils/attachCookie.js';
 
 // @desc    Register user
 // @route   Post /api/v1/auth/register
@@ -9,6 +10,9 @@ import User from '../models/UserModel.js';
 export const register = async (req, res) => {
   const { email, firstName, lastName, password } = req.body;
   const user = await User.create({ email, firstName, lastName, password });
+
+  const token = user.createJWT();
+  attachCookie({ res, token });
 
   res.status(StatusCodes.CREATED).json({
     user: {
