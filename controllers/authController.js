@@ -8,12 +8,7 @@ import { BadRequestError } from '../errors/customErrors.js';
 // @route   Post /api/v1/auth/register
 // @access  Public
 export const register = async (req, res) => {
-  const { firstName, lastName, email, password } = req.body;
-
-  const userExists = await User.findOne({ email });
-  if (userExists) throw new BadRequestError('User already exists');
-
-  const user = await User.create({ firstName, lastName, email, password });
+  const user = await User.create(req.body);
   res.status(StatusCodes.CREATED).json({ user, msg: 'user created' });
 };
 
