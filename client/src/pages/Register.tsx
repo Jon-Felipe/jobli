@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { useRegisterMutation } from '../slices/usersApiSlice';
 
 // components
@@ -34,12 +35,23 @@ const Register = () => {
 
     const { firstName, lastName, email, password, confirmPassword } = user;
     if (password !== confirmPassword) {
-      alert('passwords do not match');
+      toast.error('Passwords do not match');
     } else {
       try {
-        await register({ firstName, lastName, email, password });
-      } catch (error) {
-        console.log(error);
+        await register({ firstName, lastName, email, password }).unwrap();
+      } catch (error: unknown) {
+        if (
+          typeof error === 'object' &&
+          error &&
+          'data' in error &&
+          typeof error.data === 'object' &&
+          error.data &&
+          'msg' in error.data &&
+          typeof error.data.msg === 'string'
+        ) {
+          toast.error(error.data.msg);
+          console.log(error, 'erorr');
+        }
       }
     }
   }
