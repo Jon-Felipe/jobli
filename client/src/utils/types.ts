@@ -39,3 +39,11 @@ export type Category = {
   id: number;
   title: string;
 };
+
+export type RegisterUserType = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+};

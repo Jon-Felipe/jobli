@@ -1,10 +1,22 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 // components
 import FormRowInput from '../components/FormRowInput';
 
+// extras
+import { RegisterUserType } from '../utils/types';
+
 const Register = () => {
+  const [user, setUser] = useState<RegisterUserType>({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+  });
+
   return (
     <Wrapper>
       <h3 className='register__title'>Register</h3>
