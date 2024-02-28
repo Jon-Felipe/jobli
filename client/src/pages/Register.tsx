@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { useRegisterMutation } from '../slices/usersApiSlice';
 
 // components
 import FormRowInput from '../components/FormRowInput';
@@ -17,6 +18,8 @@ const Register = () => {
     confirmPassword: '',
   });
 
+  const [register] = useRegisterMutation();
+
   function handleInputOnChange(e: React.ChangeEvent<HTMLInputElement>) {
     const name = e.target.name;
     const value = e.target.value;
@@ -26,11 +29,26 @@ const Register = () => {
     });
   }
 
+  async function handleRegisterOnSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    const { firstName, lastName, email, password, confirmPassword } = user;
+    if (password !== confirmPassword) {
+      alert('passwords do not match');
+    } else {
+      try {
+        await register({ firstName, lastName, email, password });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
+
   return (
     <Wrapper>
       <h3 className='register__title'>Register</h3>
       <p className='register__subtext'>Create an account to get full access</p>
-      <form>
+      <form onSubmit={handleRegisterOnSubmit}>
         <FormRowInput
           label='first name'
           name='firstName'
@@ -78,7 +96,9 @@ const Register = () => {
               Sign In
             </Link>
           </p>
-          <button className='btn'>Register</button>
+          <button type='submit' className='btn'>
+            Register
+          </button>
         </div>
       </form>
     </Wrapper>
