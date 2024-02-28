@@ -50,7 +50,6 @@ const Register = () => {
           typeof error.data.msg === 'string'
         ) {
           toast.error(error.data.msg);
-          console.log(error, 'erorr');
         }
       }
     }
