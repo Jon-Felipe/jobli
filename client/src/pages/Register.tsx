@@ -17,6 +17,15 @@ const Register = () => {
     confirmPassword: '',
   });
 
+  function handleInputOnChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    setUser((prevState) => {
+      return { ...prevState, [name]: value };
+    });
+  }
+
   return (
     <Wrapper>
       <h3 className='register__title'>Register</h3>
@@ -25,30 +34,40 @@ const Register = () => {
         <FormRowInput
           label='first name'
           name='firstName'
+          value={user.firstName}
+          onChange={handleInputOnChange}
           type='text'
           placeholder='first name'
         />
         <FormRowInput
           label='last name'
           name='lastName'
+          value={user.lastName}
+          onChange={handleInputOnChange}
           type='text'
           placeholder='last name'
         />
         <FormRowInput
           label='email address'
           name='email'
+          value={user.email}
+          onChange={handleInputOnChange}
           type='email'
           placeholder='email address'
         />
         <FormRowInput
           label='password'
           name='password'
+          value={user.password}
+          onChange={handleInputOnChange}
           type='password'
           placeholder='password'
         />
         <FormRowInput
           label='confirm password'
           name='confirmPassword'
+          value={user.confirmPassword}
+          onChange={handleInputOnChange}
           type='password'
           placeholder='confirm password'
         />

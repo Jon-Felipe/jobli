@@ -4,15 +4,31 @@ import styled from 'styled-components';
 type Props = {
   label?: string;
   name: string;
+  value: React.InputHTMLAttributes<HTMLInputElement>['value'];
+  onChange: React.InputHTMLAttributes<HTMLInputElement>['onChange'];
   type: React.HTMLInputTypeAttribute;
   placeholder?: string;
 };
 
-function FormRowInput({ label, name, type, placeholder }: Props) {
+function FormRowInput({
+  label,
+  name,
+  value,
+  onChange,
+  type,
+  placeholder,
+}: Props) {
   return (
     <Wrapper>
       <label htmlFor={name}>{label || name}</label>
-      <input type={type} name={name} id={name} placeholder={placeholder} />
+      <input
+        type={type}
+        name={name}
+        id={name}
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+      />
     </Wrapper>
   );
 }
@@ -38,6 +54,8 @@ const Wrapper = styled.div`
     background-color: var(--grey-50);
     font-size: 0.85rem;
     letter-spacing: var(--letter-spacing);
-    text-transform: capitalize;
+    &::placeholder {
+      text-transform: capitalize;
+    }
   }
 `;
