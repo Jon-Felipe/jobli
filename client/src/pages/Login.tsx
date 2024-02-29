@@ -19,7 +19,7 @@ function Login({}: Props) {
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const [login] = useLoginMutation();
+  const [login, { isLoading }] = useLoginMutation();
 
   function handleOnChange(e: React.ChangeEvent<HTMLInputElement>) {
     const name = e.target.name;
@@ -86,8 +86,8 @@ function Login({}: Props) {
               Sign Up
             </Link>
           </p>
-          <button type='submit' className='btn'>
-            Login
+          <button type='submit' className='btn' disabled={isLoading}>
+            {isLoading ? 'submitting...' : 'login'}
           </button>
         </div>
       </form>
