@@ -1,13 +1,15 @@
 import { useState } from 'react';
-import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
-import { useRegisterMutation } from '../slices/usersApiSlice';
+import styled from 'styled-components';
 
 // components
 import FormRowInput from '../components/FormRowInput';
 
 // extras
+import { useRegisterMutation } from '../slices/usersApiSlice';
+import { setCredentials } from '../slices/authSlice';
 import { RegisterUserType } from '../utils/types';
 
 const Register = () => {
@@ -19,6 +21,7 @@ const Register = () => {
     confirmPassword: '',
   });
 
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [register, { isLoading }] = useRegisterMutation();
 
@@ -39,7 +42,13 @@ const Register = () => {
       toast.error('Passwords do not match');
     } else {
       try {
-        await register({ firstName, lastName, email, password }).unwrap();
+        const { user } = await register({
+          firstName,
+          lastName,
+          email,
+          password,
+        }).unwrap();
+        dispatch(setCredentials(user));
         toast.success('Registration successful');
         navigate('/');
       } catch (error: unknown) {
