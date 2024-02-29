@@ -34,6 +34,11 @@ function Login({}: Props) {
 
     const { email, password } = user;
 
+    if (!email && !password) {
+      toast.error('Please provide an email and password');
+      return;
+    }
+
     try {
       const { user } = await login({ email, password }).unwrap();
       dispatch(setCredentials(user));
