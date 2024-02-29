@@ -1,7 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { UserPayload } from '../utils/types';
 
-const initialState = {
-  userInfo: [],
+interface UserState {
+  userInfo: UserPayload;
+}
+
+const initialState: UserState = {
+  userInfo: { _id: '', email: '', firstName: '', lastName: '' },
 };
 
 const authSlice = createSlice({

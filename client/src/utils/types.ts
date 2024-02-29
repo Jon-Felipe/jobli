@@ -47,3 +47,10 @@ export type RegisterUserType = {
   password: string;
   confirmPassword: string;
 };
+
+export type UserPayload = {
+  _id: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+};
