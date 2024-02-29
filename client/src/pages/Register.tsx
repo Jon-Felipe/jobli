@@ -20,7 +20,7 @@ const Register = () => {
   });
 
   const navigate = useNavigate();
-  const [register] = useRegisterMutation();
+  const [register, { isLoading }] = useRegisterMutation();
 
   function handleInputOnChange(e: React.ChangeEvent<HTMLInputElement>) {
     const name = e.target.name;
@@ -110,8 +110,8 @@ const Register = () => {
               Sign In
             </Link>
           </p>
-          <button type='submit' className='btn'>
-            Register
+          <button type='submit' className='btn' disabled={isLoading}>
+            {isLoading ? 'Submitting...' : 'Register'}
           </button>
         </div>
       </form>
