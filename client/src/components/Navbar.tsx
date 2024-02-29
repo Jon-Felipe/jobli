@@ -1,9 +1,14 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+// extras
+import { useAppSelector } from '../utils/hooks';
+
 type Props = {};
 
 function Navbar({}: Props) {
+  const { userInfo } = useAppSelector((state) => state.auth);
+
   return (
     <Wrapper>
       <h2>Jobli</h2>
@@ -21,9 +26,15 @@ function Navbar({}: Props) {
           <Link to='/'>Contact</Link>
         </li>
       </ul>
-      <Link to='/login' className='btn nav-btn'>
-        Join Now
-      </Link>
+      {userInfo._id ? (
+        <p className='nav__user'>
+          Welcome {`${userInfo.firstName} ${userInfo.lastName}`}
+        </p>
+      ) : (
+        <Link to='/login' className='btn nav-btn'>
+          Join Now
+        </Link>
+      )}
     </Wrapper>
   );
 }
@@ -45,6 +56,11 @@ const Wrapper = styled.nav`
     padding: 0.75rem 1.25rem;
     font-size: 1rem;
     font-weight: bold;
+  }
+  .nav__user {
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: var(--letter-spacing);
   }
   @media (min-width: 1024px) {
     grid-template-columns: 1fr 3fr auto;
