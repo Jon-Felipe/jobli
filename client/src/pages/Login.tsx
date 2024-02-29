@@ -11,6 +11,14 @@ type Props = {};
 function Login({}: Props) {
   const [user, setUser] = useState<LoginUserType>({ email: '', password: '' });
 
+  function handleOnChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const name = e.target.name;
+    const value = e.target.value;
+    setUser((prevState) => {
+      return { ...prevState, [name]: value };
+    });
+  }
+
   return (
     <Wrapper>
       <h3 className='login__title'>Login</h3>
@@ -20,14 +28,14 @@ function Login({}: Props) {
           label='email address'
           name='email'
           value={user.email}
-          onChange={() => console.log('email')}
+          onChange={handleOnChange}
           type='email'
           placeholder='Email Address'
         />
         <FormRowInput
           name='password'
           value={user.password}
-          onChange={() => console.log('password')}
+          onChange={handleOnChange}
           type='password'
           placeholder='Password'
         />
