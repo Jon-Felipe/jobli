@@ -3,7 +3,7 @@ import { StatusCodes } from 'http-status-codes';
 // extras
 import User from '../models/UserModel.js';
 import attachCookie from '../utils/attachCookie.js';
-import { UnAuthenticatedError } from '../errors/customErrors.js';
+import { UnauthenticatedError } from '../errors/customErrors.js';
 
 // @desc    Register user
 // @route   Post /api/v1/auth/register
@@ -33,11 +33,11 @@ export const login = async (req, res) => {
 
   const user = await User.findOne({ email });
   if (!user) {
-    throw new UnAuthenticatedError('Invalid Credentials');
+    throw new UnauthenticatedError('Invalid Credentials');
   }
   const passwordIsCorrect = await user.comparePasswords(password);
   if (!passwordIsCorrect) {
-    throw new UnAuthenticatedError('Invalid Credentials');
+    throw new UnauthenticatedError('Invalid Credentials');
   }
 
   const token = user.createJWT();
