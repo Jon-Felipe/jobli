@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import styled from 'styled-components';
 
@@ -8,6 +7,7 @@ import styled from 'styled-components';
 import FormRowInput from '../components/FormRowInput';
 
 // extras
+import { useAppDispatch } from '../utils/hooks';
 import { useRegisterMutation } from '../slices/usersApiSlice';
 import { setCredentials } from '../slices/authSlice';
 import { RegisterUserType } from '../utils/types';
@@ -21,7 +21,7 @@ const Register = () => {
     confirmPassword: '',
   });
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [register, { isLoading }] = useRegisterMutation();
 
