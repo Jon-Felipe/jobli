@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useRegisterMutation } from '../slices/usersApiSlice';
 
@@ -19,6 +19,7 @@ const Register = () => {
     confirmPassword: '',
   });
 
+  const navigate = useNavigate();
   const [register] = useRegisterMutation();
 
   function handleInputOnChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -39,6 +40,8 @@ const Register = () => {
     } else {
       try {
         await register({ firstName, lastName, email, password }).unwrap();
+        toast.success('Registration successful');
+        navigate('/');
       } catch (error: unknown) {
         if (
           typeof error === 'object' &&
