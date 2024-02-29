@@ -48,6 +48,11 @@ export type RegisterUserType = {
   confirmPassword: string;
 };
 
+export type LoginUserType = {
+  email: string;
+  password: string;
+};
+
 export type UserPayload = {
   _id: string;
   email: string;

@@ -1,12 +1,16 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 // components
 import FormRowInput from '../components/FormRowInput';
+import { LoginUserType } from '../utils/types';
 
 type Props = {};
 
 function Login({}: Props) {
+  const [user, setUser] = useState<LoginUserType>({ email: '', password: '' });
+
   return (
     <Wrapper>
       <h3 className='login__title'>Login</h3>
@@ -15,10 +19,18 @@ function Login({}: Props) {
         <FormRowInput
           label='email address'
           name='email'
+          value={user.email}
+          onChange={() => console.log('email')}
           type='email'
           placeholder='Email Address'
         />
-        <FormRowInput name='password' type='password' placeholder='Password' />
+        <FormRowInput
+          name='password'
+          value={user.password}
+          onChange={() => console.log('password')}
+          type='password'
+          placeholder='Password'
+        />
         <div className='login__actions'>
           <p>
             Don't have an account?{' '}
