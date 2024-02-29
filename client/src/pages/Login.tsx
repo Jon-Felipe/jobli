@@ -1,15 +1,25 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { toast } from 'react-toastify';
 
 // components
 import FormRowInput from '../components/FormRowInput';
+
+// extras
+import { useAppDispatch } from '../utils/hooks';
+import { setCredentials } from '../slices/authSlice';
 import { LoginUserType } from '../utils/types';
+import { useLoginMutation } from '../slices/usersApiSlice';
 
 type Props = {};
 
 function Login({}: Props) {
   const [user, setUser] = useState<LoginUserType>({ email: '', password: '' });
+
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const [login] = useLoginMutation();
 
   function handleOnChange(e: React.ChangeEvent<HTMLInputElement>) {
     const name = e.target.name;
@@ -19,11 +29,36 @@ function Login({}: Props) {
     });
   }
 
+  async function handleLoginOnSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    const { email, password } = user;
+
+    try {
+      const { user } = await login({ email, password }).unwrap();
+      dispatch(setCredentials(user));
+      toast.success('Login successful');
+      navigate('/');
+    } catch (error: unknown) {
+      if (
+        typeof error === 'object' &&
+        error &&
+        'data' in error &&
+        typeof error.data === 'object' &&
+        error.data &&
+        'msg' in error.data &&
+        typeof error.data.msg === 'string'
+      ) {
+        toast.error(error.data.msg);
+      }
+    }
+  }
+
   return (
     <Wrapper>
       <h3 className='login__title'>Login</h3>
       <p className='login__subtext'>Enter Login details to get acccess</p>
-      <form>
+      <form onSubmit={handleLoginOnSubmit}>
         <FormRowInput
           label='email address'
           name='email'
@@ -46,7 +81,9 @@ function Login({}: Props) {
               Sign Up
             </Link>
           </p>
-          <button className='btn'>Login</button>
+          <button type='submit' className='btn'>
+            Login
+          </button>
         </div>
       </form>
     </Wrapper>
