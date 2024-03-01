@@ -7,6 +7,8 @@ export const jobsApiSlice = apiSlice.injectEndpoints({
         url: '/jobs',
         method: 'GET',
       }),
+      keepUnusedDataFor: 5,
+      providesTags: ['Jobs'],
     }),
   }),
 });
