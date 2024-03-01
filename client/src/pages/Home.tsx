@@ -6,6 +6,7 @@ import { useGetAllJobsQuery } from '../slices/jobsApiSlice';
 import JobCategoryCard from '../components/JobCategoryCard';
 import ServiceCard from '../components/ServiceCard';
 import JobCard from '../components/JobCard';
+import Spinner from '../components/Spinner';
 
 // extras
 import heroImg from '../assets/images/hero_img.svg';
@@ -66,7 +67,7 @@ function Home({}: Props) {
           <h4 className='recent-jobs__title'>Recently Added Jobs</h4>
           <h1 className='recent-jobs__subtitle'>Featured Jobs</h1>
           {isLoading ? (
-            <p>loading...</p>
+            <Spinner />
           ) : (
             <div className='recent-jobs__cards'>
               {recentlyAddedJobs.map((job: Job) => (
