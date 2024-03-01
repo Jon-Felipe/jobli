@@ -22,12 +22,13 @@ export type Select = {
 };
 
 export type Job = {
-  id: number;
-  title: string;
+  id: string;
+  jobTitle: string;
   jobDescription: string;
+  companyName: string;
   location: string;
+  salary: number;
   jobNature: JobNature;
-  company: string;
 };
 
 export type Sort = {
