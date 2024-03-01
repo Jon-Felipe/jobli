@@ -1,5 +1,6 @@
-import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { BsHeart, BsHouse, BsPin } from 'react-icons/bs';
+import styled from 'styled-components';
 
 // extras
 import { Job } from '../utils/types';
@@ -9,7 +10,7 @@ type Props = {
 };
 
 function JobCard({ job }: Props) {
-  const { jobTitle, location, companyName, jobNature } = job;
+  const { _id, jobTitle, location, companyName, jobNature } = job;
   return (
     <Wrapper>
       <div className='job__content'>
@@ -30,7 +31,9 @@ function JobCard({ job }: Props) {
         <button className='job__btns-favourite'>
           <BsHeart />
         </button>
-        <button className='btn'>View Job</button>
+        <Link to={`/jobs/${_id}`} className='btn'>
+          View Job
+        </Link>
       </div>
     </Wrapper>
   );
