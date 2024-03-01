@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { BsHeart } from 'react-icons/bs';
+import { BsHeart, BsHouse, BsPin } from 'react-icons/bs';
 
 // extras
 import { Job } from '../utils/types';
@@ -18,8 +18,12 @@ function JobCard({ job }: Props) {
           <p className='job__header-nature'>{jobNature}</p>
         </header>
         <div className='job__info'>
-          <p>{companyName}</p>
-          <p>{location}</p>
+          <p>
+            <BsHouse /> {companyName}
+          </p>
+          <p>
+            <BsPin /> {location}
+          </p>
         </div>
       </div>
       <div className='job__btns'>
@@ -69,6 +73,9 @@ const Wrapper = styled.article`
     align-items: center;
     column-gap: 1rem;
     p {
+      display: flex;
+      align-items: center;
+      column-gap: 0.5rem;
       color: var(--grey-500);
       font-size: 1.15rem;
     }
