@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-// import { useGetAllJobsQuery } from '../slices/jobsApiSlice';
+import { useGetAllJobsQuery } from '../slices/jobsApiSlice';
 
 // components
 import JobCategoryCard from '../components/JobCategoryCard';
@@ -9,15 +9,15 @@ import JobCard from '../components/JobCard';
 
 // extras
 import heroImg from '../assets/images/hero_img.svg';
-import { dummy_jobs, jobCategories, services } from '../utils/constants';
+import { jobCategories, services } from '../utils/constants';
 import { Job } from '../utils/types';
 
 type Props = {};
 
 function Home({}: Props) {
-  // const { data, isLoading } = useGetAllJobsQuery({});
+  const { data, isLoading } = useGetAllJobsQuery({});
 
-  // const recentlyAddedJobs = data.jobs.slice(0, 6);
+  const recentlyAddedJobs = data?.jobs?.slice(0, 6);
   return (
     <Wrapper>
       {/* hero section */}
@@ -65,11 +65,15 @@ function Home({}: Props) {
         <div className='recent-jobs__content'>
           <h4 className='recent-jobs__title'>Recently Added Jobs</h4>
           <h1 className='recent-jobs__subtitle'>Featured Jobs</h1>
-          <div className='recent-jobs__cards'>
-            {dummy_jobs.map((job: Job) => (
-              <JobCard key={job.id} job={job} />
-            ))}
-          </div>
+          {isLoading ? (
+            <p>loading...</p>
+          ) : (
+            <div className='recent-jobs__cards'>
+              {recentlyAddedJobs.map((job: Job) => (
+                <JobCard key={job._id} job={job} />
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </Wrapper>

@@ -22,7 +22,7 @@ export type Select = {
 };
 
 export type Job = {
-  id: string;
+  _id: string;
   jobTitle: string;
   jobDescription: string;
   companyName: string;
