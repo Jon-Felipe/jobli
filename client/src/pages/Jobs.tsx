@@ -44,7 +44,7 @@ function Jobs({}: Props) {
       {/* jobs */}
       <section className='jobs'>
         <div className='jobs__header'>
-          <p>39, 782 Jobs found</p>
+          <p>{data?.totalJobs || 0} Jobs found</p>
           <div className='jobs__sort'>
             <div className='jobs__sort-text'>
               <h6>Sort by</h6>
