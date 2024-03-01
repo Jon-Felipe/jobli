@@ -1,4 +1,5 @@
-import { body, validationResult } from 'express-validator';
+import mongoose from 'mongoose';
+import { body, param, validationResult } from 'express-validator';
 
 // extras
 import { BadRequestError } from '../errors/customErrors.js';
@@ -46,4 +47,10 @@ export const validateLoginInput = withValidationErrors([
     .isEmail()
     .withMessage('invalid email format'),
   body('password').notEmpty().withMessage('password is required'),
+]);
+
+export const validateIdParam = withValidationErrors([
+  param('id')
+    .custom((value) => mongoose.Types.ObjectId.isValid(value))
+    .withMessage('invalid MongoDB id'),
 ]);
