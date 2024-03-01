@@ -1,17 +1,22 @@
 import { BsFilter } from 'react-icons/bs';
 import styled from 'styled-components';
+import { useGetAllJobsQuery } from '../slices/jobsApiSlice';
 
 // components
 import JobCard from '../components/JobCard';
 import Select from '../components/Select';
 import Checkbox from '../components/Checkbox';
+import Spinner from '../components/Spinner';
 
 // extras
-import { categoryOptions, dummy_jobs, sortOptions } from '../utils/constants';
+import { categoryOptions, sortOptions } from '../utils/constants';
+import { Job } from '../utils/types';
 
 type Props = {};
 
 function Jobs({}: Props) {
+  const { data, isLoading } = useGetAllJobsQuery({});
+
   return (
     <Wrapper>
       {/* job filters */}
@@ -47,11 +52,15 @@ function Jobs({}: Props) {
             <Select name='sort' values={sortOptions} />
           </div>
         </div>
-        <div className='jobs__content'>
-          {dummy_jobs.map((job) => (
-            <JobCard key={job.id} job={job} />
-          ))}
-        </div>
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <div className='jobs__content'>
+            {data?.jobs?.map((job: Job) => (
+              <JobCard key={job._id} job={job} />
+            ))}
+          </div>
+        )}
       </section>
     </Wrapper>
   );
