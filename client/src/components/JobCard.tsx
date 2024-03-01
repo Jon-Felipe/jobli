@@ -9,16 +9,16 @@ type Props = {
 };
 
 function JobCard({ job }: Props) {
-  const { title, location, company, jobNature } = job;
+  const { jobTitle, location, companyName, jobNature } = job;
   return (
     <Wrapper>
       <div className='job__content'>
         <header className='job__header'>
-          <h3 className='job__header-title'>{title}</h3>
+          <h3 className='job__header-title'>{jobTitle}</h3>
           <p className='job__header-nature'>{jobNature}</p>
         </header>
         <div className='job__info'>
-          <p>{company}</p>
+          <p>{companyName}</p>
           <p>{location}</p>
         </div>
       </div>
