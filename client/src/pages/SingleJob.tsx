@@ -1,9 +1,21 @@
+import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { FaRegBuilding, FaMapMarkerAlt } from 'react-icons/fa';
+import { useGetSingleJobQuery } from '../slices/jobsApiSlice';
+
+// components
+import Spinner from '../components/Spinner';
 
 type Props = {};
 
 function SingleJob({}: Props) {
+  const { id } = useParams();
+  const { data, isLoading } = useGetSingleJobQuery(id);
+
+  if (isLoading) {
+    return <Spinner />;
+  }
+
   return (
     <Wrapper>
       {/* job */}
@@ -15,13 +27,13 @@ function SingleJob({}: Props) {
               <FaRegBuilding />
             </div>
             <div className='job__company'>
-              <h3 className='job__company-title'>Digital Marketer</h3>
+              <h3 className='job__company-title'>{data?.job?.jobTitle}</h3>
               <div className='job__company-details'>
-                <p>Creative Agency</p>
+                <p>{data?.job?.companyName}</p>
                 <p>
-                  <FaMapMarkerAlt /> Athens, Greece{' '}
+                  <FaMapMarkerAlt /> {data?.job?.location}{' '}
                 </p>
-                <p>$3500 - $4000</p>
+                <p>${data?.job?.salary}</p>
               </div>
             </div>
           </header>
@@ -29,12 +41,7 @@ function SingleJob({}: Props) {
           <div className='job__description'>
             <h5 className='job__description--title'>Job Description</h5>
             <p className='job__description--text'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
-              atque magni numquam laborum repellendus mollitia dolorum
-              laboriosam quasi ducimus dolor excepturi eos ad soluta molestiae
-              cumque suscipit labore optio quas, fugiat vitae deleniti pariatur
-              veritatis perferendis est. Amet provident perferendis ipsa quia
-              cupiditate distinctio doloremque a, illum quaerat rerum delectus!
+              {data?.job?.jobDescription}
             </p>
           </div>
         </article>
