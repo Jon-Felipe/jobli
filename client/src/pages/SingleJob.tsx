@@ -68,6 +68,7 @@ function SingleJob({}: Props) {
           <p className='overview__text'>
             Application date: <span>12 Sep 2020</span>
           </p>
+          <button className='btn btn-block'>Apply Now</button>
         </article>
       </section>
     </Wrapper>
@@ -131,6 +132,7 @@ const Wrapper = styled.div`
     border: 1px solid var(--grey-300);
     border-radius: var(--border-radius);
     padding: 1.5rem;
+    background-color: var(--white);
   }
   .overview__title {
     font-size: 1.85rem;
