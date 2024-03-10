@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Jobs from './pages/Jobs';
 import SingleJob from './pages/SingleJob';
+import Profile from './pages/Profile';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: '/jobs/:id',
         element: <SingleJob />,
+      },
+      {
+        path: '/profile',
+        element: <Profile />,
       },
       {
         path: '/login',

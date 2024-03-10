@@ -12,7 +12,7 @@ import { useAppDispatch, useAppSelector } from '../utils/hooks';
 type Props = {};
 
 function Navbar({}: Props) {
-  const [showUserOptions, setShowUserOptions] = useState<boolean>(true);
+  const [showUserOptions, setShowUserOptions] = useState<boolean>(false);
 
   const dispatch = useAppDispatch();
   const { userInfo } = useAppSelector((state) => state.auth);
@@ -58,7 +58,7 @@ function Navbar({}: Props) {
           </button>
           {showUserOptions && (
             <div className='nav__user-options'>
-              <Link to='/' className='nav__user-options-link'>
+              <Link to='/profile' className='nav__user-options-link'>
                 My Profile
               </Link>
               <button
