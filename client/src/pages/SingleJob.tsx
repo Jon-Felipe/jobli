@@ -7,7 +7,7 @@ import { useGetSingleJobQuery } from '../slices/jobsApiSlice';
 import Spinner from '../components/Spinner';
 
 // extras
-import { numberFormat } from '../utils/helpers';
+import { currencyNumberFormat } from '../utils/helpers';
 
 type Props = {};
 
@@ -36,7 +36,7 @@ function SingleJob({}: Props) {
                 <p>
                   <FaMapMarkerAlt /> {data?.job?.location}{' '}
                 </p>
-                <p>{numberFormat(data?.job?.salary)}</p>
+                <p>{currencyNumberFormat(data?.job?.salary)}</p>
               </div>
             </div>
           </header>
