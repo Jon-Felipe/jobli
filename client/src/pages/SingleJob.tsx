@@ -45,6 +45,32 @@ function SingleJob({}: Props) {
             </p>
           </div>
         </article>
+        <article className='skills'>
+          <h3 className='skills--title'>
+            Required Knowledge, Skills, and Abilities
+          </h3>
+          <div className='skills__list'>
+            {data?.job?.requiredSkills.map((skill: string, index: number) => {
+              return (
+                <ul key={index}>
+                  <li>{skill}</li>
+                </ul>
+              );
+            })}
+          </div>
+        </article>
+        <article className='experience'>
+          <h3 className='experience--title'>Experience</h3>
+          <div className='experience__list'>
+            {data?.job?.experience.map((experience: string, index: number) => {
+              return (
+                <ul key={index}>
+                  <li>{experience}</li>
+                </ul>
+              );
+            })}
+          </div>
+        </article>
       </section>
       {/* job summary */}
       <section>
@@ -96,6 +122,7 @@ const Wrapper = styled.div`
     border-radius: var(--border-radius);
     padding: 1rem;
     margin-bottom: 1rem;
+    background-color: var(--white);
   }
   .job__icon svg {
     width: 80px;
@@ -115,18 +142,23 @@ const Wrapper = styled.div`
       letter-spacing: 0.5px;
     }
   }
-  .job__description {
+  .job__description,
+  .skills,
+  .experience {
     max-width: 800px;
+    margin-bottom: 2rem;
   }
-  .job__description--title {
+  .job__description--title,
+  .skills--title,
+  .experience--title {
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 20px;
   }
   .job__description--text {
     word-spacing: 3px;
-    letter-spacing: 1px;
-    line-height: 30px;
+    letter-spacing: var(--letter-spacing);
+    line-height: 20px;
   }
   .overview {
     border: 1px solid var(--grey-300);
@@ -144,6 +176,12 @@ const Wrapper = styled.div`
     align-items: center;
     justify-content: space-between;
     margin-bottom: 1.5rem;
+    letter-spacing: var(--letter-spacing);
+  }
+  .skills__list li,
+  .experience__list li {
+    list-style: disc;
+    margin: 1rem 0;
     letter-spacing: var(--letter-spacing);
   }
   @media (min-width: 1024px) {
