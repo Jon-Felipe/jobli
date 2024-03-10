@@ -2,16 +2,32 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { FaCaretDown, FaCaretUp } from 'react-icons/fa';
+import { toast } from 'react-toastify';
+import { useLogoutMutation } from '../slices/usersApiSlice';
+import { logout } from '../slices/authSlice';
 
 // extras
-import { useAppSelector } from '../utils/hooks';
+import { useAppDispatch, useAppSelector } from '../utils/hooks';
 
 type Props = {};
 
 function Navbar({}: Props) {
   const [showUserOptions, setShowUserOptions] = useState<boolean>(true);
 
+  const dispatch = useAppDispatch();
   const { userInfo } = useAppSelector((state) => state.auth);
+
+  const [logoutApiCall] = useLogoutMutation();
+
+  async function onLogoutClick() {
+    try {
+      await logoutApiCall({}).unwrap();
+      dispatch(logout());
+      toast.success('Logged out successfully');
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <Wrapper>
@@ -45,7 +61,13 @@ function Navbar({}: Props) {
               <Link to='/' className='nav__user-options-link'>
                 My Profile
               </Link>
-              <button className='nav__user-options-btn'>Logout</button>
+              <button
+                type='button'
+                onClick={onLogoutClick}
+                className='nav__user-options-btn'
+              >
+                Logout
+              </button>
             </div>
           )}
         </div>
