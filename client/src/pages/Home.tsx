@@ -23,14 +23,16 @@ function Home({}: Props) {
     <Wrapper>
       {/* hero section */}
       <section className='hero'>
-        <div className='hero__caption'>
+        <div className='hero-actions'>
           <h5>Easiest way to find a perfect job</h5>
           <h1>Find Your Next Dream Job</h1>
           <div className='hero__btns'>
             <Link to='/jobs' className='btn'>
               Looking For A Job?
             </Link>
-            <button className='btn'>Find Talent</button>
+            <button type='button' className='btn'>
+              Find Talent
+            </button>
           </div>
         </div>
         <div className='hero__image'>
@@ -38,18 +40,16 @@ function Home({}: Props) {
         </div>
       </section>
       {/* job category section */}
-      <section className='categories'>
+      <section className='category'>
         <header>
-          <h3>Browse From Top Categories</h3>
-          <div className='categories__text'>
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi,
-              minus repellat velit saepe deserunt autem ad alias perspiciatis
-              vero nulla beatae assumenda atque esse quo.
-            </p>
-          </div>
+          <h3 className='category__title'>Browse From Top Categories</h3>
+          <p className='category__text'>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi,
+            minus repellat velit saepe deserunt autem ad alias perspiciatis vero
+            nulla beatae assumenda atque esse quo.
+          </p>
         </header>
-        <div className='categories__jobs'>
+        <div className='category__cards'>
           {jobCategories.map((jobCategory) => (
             <JobCategoryCard key={jobCategory.id} jobCategory={jobCategory} />
           ))}
@@ -63,19 +63,17 @@ function Home({}: Props) {
       </section>
       {/* recent jobs */}
       <section className='recent-jobs'>
-        <div className='recent-jobs__content'>
-          <h4 className='recent-jobs__title'>Recently Added Jobs</h4>
-          <h1 className='recent-jobs__subtitle'>Featured Jobs</h1>
-          {isLoading ? (
-            <Spinner />
-          ) : (
-            <div className='recent-jobs__cards'>
-              {recentlyAddedJobs.map((job: Job) => (
-                <JobCard key={job._id} job={job} />
-              ))}
-            </div>
-          )}
-        </div>
+        <h4 className='recent-jobs__title'>Recently Added Jobs</h4>
+        <h1 className='recent-jobs__subtitle'>Featured Jobs</h1>
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <div className='recent-jobs__cards'>
+            {recentlyAddedJobs.map((job: Job) => (
+              <JobCard key={job._id} job={job} />
+            ))}
+          </div>
+        )}
       </section>
     </Wrapper>
   );
@@ -90,11 +88,11 @@ const Wrapper = styled.div`
     max-width: 1320px;
     margin: 80px auto;
   }
-  .hero__caption {
+  .hero-actions {
     h5 {
       font-size: 1.5rem;
       margin-bottom: 2rem;
-      color: var(--grey-500);
+      color: var(--grey-400);
     }
     h1 {
       font-weight: 500;
@@ -117,39 +115,32 @@ const Wrapper = styled.div`
   .hero__image {
     display: none;
   }
-  .categories {
+  .category {
     text-align: center;
     background-color: var(--white);
-    padding: 2rem;
-    header {
-      h3 {
-        font-weight: 700;
-        margin-bottom: 1.5rem;
-      }
-      .categories__text {
-        max-width: 800px;
-        margin: 0 auto;
-        p {
-          letter-spacing: var(--letter-spacing);
-          line-height: 25px;
-          color: var(--grey-500);
-        }
-      }
-    }
+    padding: 4rem 2rem;
   }
-  .categories__jobs {
+  .category__title {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+  .category__text {
+    max-width: 800px;
+    margin: 0 auto;
+    letter-spacing: var(--letter-spacing);
+    line-height: 25px;
+    color: var(--grey-400);
+  }
+  .category__cards {
     display: grid;
     gap: 2rem;
-    margin: 1rem auto;
     max-width: 1320px;
     margin: 80px auto;
   }
   .services {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
     max-width: 1320px;
-    margin: 50px auto;
+    margin: 80px auto;
     padding: 2rem;
     gap: 2rem;
   }
@@ -157,10 +148,6 @@ const Wrapper = styled.div`
     background-color: var(--white);
     padding: 4rem 2rem;
     text-align: center;
-  }
-  .recent-jobs__content {
-    max-width: 800px;
-    margin: 0 auto;
   }
   .recent-jobs__title {
     color: var(--grey-500);
@@ -172,6 +159,7 @@ const Wrapper = styled.div`
     font-size: 2.5rem;
   }
   .recent-jobs__cards {
+    max-width: 800px;
     margin: 2rem auto;
   }
   @media (min-width: 1024px) {
@@ -193,13 +181,12 @@ const Wrapper = styled.div`
         object-fit: cover;
       }
     }
-    .categories__jobs {
+    .category__cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
     }
     .services {
-      flex-direction: row;
-      justify-content: space-between;
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 `;

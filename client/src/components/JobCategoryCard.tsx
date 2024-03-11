@@ -11,12 +11,14 @@ const JobCategoryCard = ({ jobCategory }: Props) => {
   const { icon: Icon, title, text } = jobCategory;
   return (
     <Wrapper>
-      <div className='job__icon'>
+      <div className='job-category__icon'>
         <Icon />
       </div>
-      <h3 className='job__title'>{title}</h3>
-      <p className='job__text'>{text}</p>
-      <button className='job__btn'>Browse Jobs</button>
+      <h3 className='job-category__title'>{title}</h3>
+      <p className='job-category__text'>{text}</p>
+      <button type='button' className='job-category__btn'>
+        Browse Jobs
+      </button>
     </Wrapper>
   );
 };
@@ -31,7 +33,7 @@ const Wrapper = styled.article`
     box-shadow: 0px 15px 60px rgba(54, 127, 255, 0.1);
     transition: var(--transition);
   }
-  .job__icon {
+  .job-category__icon {
     width: 80px;
     height: 80px;
     background-color: var(--white);
@@ -49,18 +51,18 @@ const Wrapper = styled.article`
       color: var(--green);
     }
   }
-  .job__title {
+  .job-category__title {
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
   }
-  .job__text {
+  .job-category__text {
     line-height: 30px;
     letter-spacing: var(--letter-spacing);
-    color: var(--grey-500);
+    color: var(--grey-400);
     margin-bottom: 1rem;
   }
-  .job__btn {
+  .job-category__btn {
     background-color: transparent;
     border: none;
     text-transform: uppercase;

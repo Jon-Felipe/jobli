@@ -39,7 +39,4 @@ const Wrapper = styled.article`
     line-height: 2rem;
     color: var(--grey-400);
   }
-  @media (min-width: 1024px) {
-    padding: 0rem;
-  }
 `;

@@ -73,7 +73,7 @@ export const services: Service[] = [
   {
     id: 4,
     icon: BsAward,
-    title: 'Search Expert Candidates',
+    title: 'Search Expert Talent',
     text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
   },
 ];
