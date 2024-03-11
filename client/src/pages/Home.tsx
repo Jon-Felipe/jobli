@@ -159,7 +159,9 @@ const Wrapper = styled.div`
     font-size: 2.5rem;
   }
   .recent-jobs__cards {
-    max-width: 800px;
+    display: grid;
+    row-gap: 2rem;
+    max-width: 1320px;
     margin: 2rem auto;
   }
   @media (min-width: 1024px) {
@@ -187,6 +189,10 @@ const Wrapper = styled.div`
     }
     .services {
       grid-template-columns: repeat(4, 1fr);
+    }
+    .recent-jobs__cards {
+      grid-template-columns: 1fr 1fr;
+      column-gap: 2rem;
     }
   }
 `;

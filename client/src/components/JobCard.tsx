@@ -1,5 +1,10 @@
 import { Link } from 'react-router-dom';
-import { BsHeart, BsHouse, BsPin } from 'react-icons/bs';
+import {
+  FaBriefcase,
+  FaMapMarkerAlt,
+  FaMoneyBillWave,
+  FaRegHeart,
+} from 'react-icons/fa';
 import styled from 'styled-components';
 
 // extras
@@ -10,102 +15,84 @@ type Props = {
 };
 
 function JobCard({ job }: Props) {
-  const { _id, jobTitle, location, companyName, jobNature } = job;
+  const { _id, jobTitle, location, companyName, jobNature, salary } = job;
   return (
-    <Wrapper>
+    <Wrapper to={`/jobs/${_id}`}>
+      <FaBriefcase className='job-icon' />
       <div className='job__content'>
-        <header className='job__header'>
-          <h3 className='job__header-title'>{jobTitle}</h3>
-          <p className='job__header-nature'>{jobNature}</p>
-        </header>
-        <div className='job__info'>
-          <p>
-            <BsHouse /> {companyName}
-          </p>
-          <p>
-            <BsPin /> {location}
-          </p>
+        <h3 className='job__content-title'>{jobTitle}</h3>
+        <div className='job__content__info'>
+          <div className='job__content__info-item'>
+            <FaBriefcase />
+            <p>{companyName}</p>
+          </div>
+          <div className='job__content__info-item'>
+            <FaMapMarkerAlt />
+            <p>{location}</p>
+          </div>
+          <div className='job__content__info-item'>
+            <FaMoneyBillWave />
+            <p>${salary}</p>
+          </div>
+        </div>
+        <div className='job__content__info-extra'>
+          <p>{jobNature}</p>
+          <p>Private</p>
+          <p>Urgent</p>
         </div>
       </div>
-      <div className='job__btns'>
-        <button className='job__btns-favourite'>
-          <BsHeart />
-        </button>
-        <Link to={`/jobs/${_id}`} className='btn'>
-          View Job
-        </Link>
-      </div>
+      <FaRegHeart className='job__favourite-btn' />
     </Wrapper>
   );
 }
 
 export default JobCard;
 
-const Wrapper = styled.article`
+const Wrapper = styled(Link)`
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  border-bottom: 1px solid var(--red-light);
-  margin: 0 auto 1rem;
-  padding: 0 0 1rem;
-  text-align: left;
-  .job__content {
-    margin-bottom: 1rem;
-  }
-  .job__header {
-    display: flex;
-    align-items: end;
-    column-gap: 1rem;
-    margin-bottom: 1rem;
-  }
-  .job__header-title {
-    font-size: 2rem;
-  }
-  .job__header-nature {
-    border: 1px solid var(--grey-200);
-    padding: 5px 10px;
-    border-radius: 50px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: capitalize;
-    letter-spacing: var(--letter-spacing);
-  }
-  .job__info {
-    display: flex;
-    align-items: center;
-    column-gap: 1rem;
-    p {
-      display: flex;
-      align-items: center;
-      column-gap: 0.5rem;
-      color: var(--grey-500);
-      font-size: 1.15rem;
-    }
-  }
-  .job__btns {
-    display: flex;
-    align-items: center;
-    column-gap: 0.5rem;
-  }
-  .job__btns-favourite {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: transparent;
-    border: none;
-    height: 50px;
+  column-gap: 2rem;
+  border: 1px solid var(--grey-200);
+  border-radius: 15px;
+  padding: 2rem;
+  .job-icon {
     width: 50px;
-    border-radius: 50px;
-    cursor: pointer;
-    svg {
-      color: var(--red-dark);
-      height: 20px;
-      width: 20px;
+    height: 50px;
+  }
+  .job__content {
+    text-align: start;
+    width: 100%;
+  }
+  .job__content-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  .job__content__info {
+    display: flex;
+    align-items: center;
+    column-gap: 2rem;
+  }
+  .job__content__info-item {
+    display: flex;
+    align-items: center;
+    column-gap: 0.25rem;
+    margin-bottom: 1rem;
+  }
+  .job__content__info-extra {
+    display: flex;
+    align-items: center;
+    column-gap: 2rem;
+    p {
+      border: 1px solid var(--grey-100);
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      text-transform: capitalize;
     }
   }
-  @media (min-width: 1024px) {
-    flex-direction: row;
-    align-items: center;
+  .job__favourite-btn {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
   }
 `;
