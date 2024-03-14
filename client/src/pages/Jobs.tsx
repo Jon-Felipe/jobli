@@ -130,10 +130,12 @@ const Wrapper = styled.div`
     }
   }
   .jobs__content {
-    background-color: var(--white);
+    display: grid;
+    row-gap: 1rem;
     padding: 1.25rem;
     border-radius: var(--border-radius);
     border: 1px solid var(--grey-200);
+    background-color: var(--white);
   }
   @media (min-width: 1024px) {
     grid-template-columns: 300px 1fr;
