@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { FaCaretDown, FaCaretUp } from 'react-icons/fa';
+import { FaTimes, FaBars, FaRegUserCircle, FaSignOutAlt } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import { useLogoutMutation } from '../slices/usersApiSlice';
 import { logout } from '../slices/authSlice';
@@ -12,14 +12,14 @@ import { useAppDispatch, useAppSelector } from '../utils/hooks';
 type Props = {};
 
 function Navbar({}: Props) {
-  const [showUserOptions, setShowUserOptions] = useState<boolean>(false);
+  const [showNavLinks, setShowNavLinks] = useState<boolean>(false);
 
   const dispatch = useAppDispatch();
   const { userInfo } = useAppSelector((state) => state.auth);
 
   const [logoutApiCall] = useLogoutMutation();
 
-  async function onLogoutClick() {
+  async function logoutHandler() {
     try {
       await logoutApiCall({}).unwrap();
       dispatch(logout());
@@ -31,8 +31,14 @@ function Navbar({}: Props) {
 
   return (
     <Wrapper>
-      <h2>Jobli</h2>
-      <ul className='nav-links'>
+      <h4 className='nav__title'>Jobli</h4>
+      <div
+        className='nav__toggle'
+        onClick={() => setShowNavLinks(!showNavLinks)}
+      >
+        {showNavLinks ? <FaTimes /> : <FaBars />}
+      </div>
+      <ul className='nav__links'>
         <li>
           <Link to='/'>Home</Link>
         </li>
@@ -45,37 +51,32 @@ function Navbar({}: Props) {
         <li>
           <Link to='/'>Contact</Link>
         </li>
-      </ul>
-      {userInfo._id ? (
-        <div className='nav__user'>
-          <button
-            type='button'
-            onClick={() => setShowUserOptions(!showUserOptions)}
-            className='nav__btn--toggle'
-          >
-            Welcome {`${userInfo.firstName} ${userInfo.lastName}`}
-            <span>{showUserOptions ? <FaCaretUp /> : <FaCaretDown />}</span>
-          </button>
-          {showUserOptions && (
-            <div className='nav__user-options'>
-              <Link to='/profile' className='nav__user-options-link'>
-                My Profile
+        {userInfo.firstName ? (
+          <>
+            <li>
+              <Link to='/profile' className='nav__link-profile'>
+                Profile <FaRegUserCircle />
               </Link>
-              <button
-                type='button'
-                onClick={onLogoutClick}
-                className='nav__user-options-btn'
-              >
-                Logout
-              </button>
-            </div>
-          )}
-        </div>
-      ) : (
-        <Link to='/login' className='btn nav-btn'>
-          Join Now
-        </Link>
-      )}
+            </li>
+            <button onClick={logoutHandler} className='nav__link-logout'>
+              Logout <FaSignOutAlt />
+            </button>
+          </>
+        ) : (
+          <>
+            <li>
+              <Link to='/login' className='nav__link-login'>
+                Login
+              </Link>
+            </li>
+            <li>
+              <Link to='/register' className='nav__link-register'>
+                Register
+              </Link>
+            </li>
+          </>
+        )}
+      </ul>
     </Wrapper>
   );
 }
@@ -85,62 +86,63 @@ export default Navbar;
 const Wrapper = styled.nav`
   display: grid;
   grid-template-columns: 1fr auto;
-  align-items: center;
-  height: 5rem;
   max-width: 1320px;
   margin: 0 auto;
-  padding: 0 2rem;
-  .nav-links {
+  padding: 2rem 1rem;
+  .nav__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  .nav__toggle {
+    svg {
+      width: 25px;
+      height: 25px;
+      cursor: pointer;
+    }
+  }
+  .nav__links {
     display: none;
   }
-  .nav-btn {
-    padding: 0.75rem 1.25rem;
-    font-size: 1rem;
-    font-weight: bold;
-  }
-  .nav__user {
-    position: relative;
-  }
-  .nav__btn--toggle {
-    display: flex;
-    align-items: center;
-    column-gap: 0.5rem;
-    background-color: transparent;
-    border: none;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: var(--letter-spacing);
-    cursor: pointer;
-  }
-  .nav__user-options {
-    position: absolute;
-    top: 30px;
-    display: flex;
-    flex-direction: column;
-    row-gap: 0.5rem;
-  }
-  .nav__user-options-link {
-    font-size: 1rem;
-    letter-spacing: var(--letter-spacing);
-  }
-  .nav__user-options-btn {
-    background-color: transparent;
-    border: none;
-    text-align: left;
-    font-size: 1rem;
-    letter-spacing: var(--letter-spacing);
-    cursor: pointer;
-  }
   @media (min-width: 1024px) {
-    grid-template-columns: 1fr 3fr auto;
-    .nav-links {
+    .nav__toggle {
+      display: none;
+    }
+    .nav__links {
       display: flex;
       align-items: center;
-      column-gap: 20px;
+      column-gap: 1.5rem;
       a {
-        font-size: 1.25rem;
-        font-weight: 500;
+        letter-spacing: var(--letter-spacing);
       }
+    }
+    .nav__link-login {
+      background-color: var(--primary-500);
+      color: var(--white);
+      padding: 0.7rem 2rem;
+      border-radius: 5px;
+      margin-left: 2rem;
+    }
+    .nav__link-register {
+      background-color: var(--primary-800);
+      color: var(--white);
+      padding: 0.7rem 2rem;
+      border-radius: 5px;
+    }
+    .nav__link-profile {
+      display: flex;
+      align-items: center;
+      column-gap: 0.5rem;
+      margin-left: 2rem;
+    }
+    .nav__link-logout {
+      display: flex;
+      align-items: center;
+      column-gap: 0.5rem;
+      background-color: transparent;
+      border: none;
+      font-size: 1rem;
+      letter-spacing: var(--letter-spacing);
+      cursor: pointer;
     }
   }
 `;
