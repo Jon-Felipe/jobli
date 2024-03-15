@@ -17,7 +17,7 @@ function Checkbox({ name, label }: Props) {
 export default Checkbox;
 
 const Wrapper = styled.div`
-  margin: 0.85rem 0;
+  margin: 1rem 0;
   display: flex;
   align-items: center;
   column-gap: 0.5rem;
@@ -27,8 +27,8 @@ const Wrapper = styled.div`
     cursor: pointer;
   }
   label {
-    text-transform: capitalize;
-    font-size: 1.15rem;
+    font-size: 0.85rem;
     letter-spacing: var(--letter-spacing);
+    text-transform: capitalize;
   }
 `;

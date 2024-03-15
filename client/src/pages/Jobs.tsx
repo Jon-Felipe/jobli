@@ -116,14 +116,20 @@ const Wrapper = styled.div`
   .filters__content-catgory {
     margin-bottom: 1.5rem;
     h3 {
-      font-size: 1.5rem;
+      display: block;
+      text-transform: capitalize;
+      font-size: 1.25rem;
+      color: var(--grey-600);
+      letter-spacing: var(--letter-spacing);
       margin-bottom: 1rem;
     }
   }
   .filters__content-type {
     h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1.25rem;
+      font-size: 1.25rem;
+      color: var(--grey-600);
+      letter-spacing: var(--letter-spacing);
+      margin-bottom: 1rem;
     }
   }
   .filter-btn {

@@ -21,12 +21,14 @@ function Select({ name, values }: Props) {
 export default Select;
 
 const Wrapper = styled.select`
+  display: block;
   width: 100%;
-  padding: 0.5rem 1rem;
+  border: 1px solid var(--grey-300);
   border-radius: var(--border-radius);
-  border: 1px solid var(--grey-200);
+  background-color: var(--grey-50);
   font-size: 0.85rem;
-  text-transform: capitalize;
   letter-spacing: var(--letter-spacing);
+  padding: 1rem;
+  text-transform: capitalize;
   cursor: pointer;
 `;
