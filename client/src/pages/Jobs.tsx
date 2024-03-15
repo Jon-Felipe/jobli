@@ -11,6 +11,7 @@ import Spinner from '../components/Spinner';
 // extras
 import { categoryOptions, sortOptions } from '../utils/constants';
 import { Job } from '../utils/types';
+import FormRowInput from '../components/FormRowInput';
 
 type Props = {};
 
@@ -26,6 +27,16 @@ function Jobs({}: Props) {
           <p>Filter Jobs</p>
         </div>
         <div className='filters__content'>
+          <div className='filters__content-search'>
+            <FormRowInput
+              type='text'
+              label='job search'
+              name='search'
+              value=''
+              onChange={() => console.log('search')}
+              placeholder='search keyword'
+            />
+          </div>
           {/* job category filter */}
           <div className='filters__content-catgory'>
             <h3>Job Category</h3>
