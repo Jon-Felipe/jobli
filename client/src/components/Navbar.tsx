@@ -121,12 +121,16 @@ const Wrapper = styled.nav`
       padding: 0.7rem 2rem;
       border-radius: 5px;
       margin-left: 2rem;
+      font-weight: 600;
+      box-shadow: var(--shadow-1);
     }
     .nav__link-register {
-      background-color: var(--primary-800);
+      background-color: var(--secondary-500);
       color: var(--white);
       padding: 0.7rem 2rem;
       border-radius: 5px;
+      font-weight: 600;
+      box-shadow: var(--shadow-1);
     }
     .nav__link-profile {
       display: flex;
