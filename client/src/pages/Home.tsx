@@ -39,6 +39,14 @@ function Home({}: Props) {
           <img src={heroImg} alt='job search image' />
         </div>
       </section>
+      {/* services section */}
+      <section className='services'>
+        <div className='services-content'>
+          {services.map((service) => (
+            <ServiceCard key={service.id} service={service} />
+          ))}
+        </div>
+      </section>
       {/* job category section */}
       <section className='category'>
         <header>
@@ -54,12 +62,6 @@ function Home({}: Props) {
             <JobCategoryCard key={jobCategory.id} jobCategory={jobCategory} />
           ))}
         </div>
-      </section>
-      {/* services section */}
-      <section className='services'>
-        {services.map((service) => (
-          <ServiceCard key={service.id} service={service} />
-        ))}
       </section>
       {/* recent jobs */}
       <section className='recent-jobs'>
@@ -115,6 +117,21 @@ const Wrapper = styled.div`
   .hero__image {
     display: none;
   }
+  .services {
+    background-color: var(--primary-500);
+  }
+  .services-content {
+    display: grid;
+    gap: 2rem;
+    padding: 4rem 0;
+    max-width: 1320px;
+    margin: 80px auto;
+    svg,
+    h3,
+    p {
+      color: var(--white);
+    }
+  }
   .category {
     text-align: center;
     background-color: var(--white);
@@ -136,13 +153,6 @@ const Wrapper = styled.div`
     gap: 2rem;
     max-width: 1320px;
     margin: 80px auto;
-  }
-  .services {
-    display: grid;
-    max-width: 1320px;
-    margin: 80px auto;
-    padding: 2rem;
-    gap: 2rem;
   }
   .recent-jobs {
     background-color: var(--white);
@@ -183,12 +193,12 @@ const Wrapper = styled.div`
         object-fit: cover;
       }
     }
+    .services-content {
+      grid-template-columns: repeat(4, 1fr);
+    }
     .category__cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-    }
-    .services {
-      grid-template-columns: repeat(4, 1fr);
     }
     .recent-jobs__cards {
       grid-template-columns: 1fr 1fr;
