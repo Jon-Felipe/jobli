@@ -27,6 +27,7 @@ function Jobs({}: Props) {
           <p>Filter Jobs</p>
         </div>
         <div className='filters__content'>
+          {/* job search filter */}
           <div className='filters__content-search'>
             <FormRowInput
               type='text'
@@ -50,6 +51,9 @@ function Jobs({}: Props) {
             <Checkbox name='remote' />
             <Checkbox name='freelance' />
           </div>
+          <button type='button' className='btn filter-btn'>
+            Reset
+          </button>
         </div>
       </section>
       {/* jobs */}
@@ -121,6 +125,13 @@ const Wrapper = styled.div`
       font-size: 1.5rem;
       margin-bottom: 1.25rem;
     }
+  }
+  .filter-btn {
+    display: block;
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 0.5rem 0.8rem;
+    font-size: 1rem;
   }
   .jobs__header {
     display: flex;
