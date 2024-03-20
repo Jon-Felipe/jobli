@@ -16,9 +16,6 @@ const JobCategoryCard = ({ jobCategory }: Props) => {
       </div>
       <h3 className='job-category__title'>{title}</h3>
       <p className='job-category__text'>{text}</p>
-      <button type='button' className='job-category__btn'>
-        Browse Jobs
-      </button>
     </Wrapper>
   );
 };
@@ -27,8 +24,9 @@ export default JobCategoryCard;
 
 const Wrapper = styled.article`
   padding: 2rem;
+  border: 1px solid var(--grey-200);
   border-radius: var(--border-radius);
-  text-align: left;
+  text-align: center;
   &:hover {
     box-shadow: 0px 15px 60px rgba(54, 127, 255, 0.1);
     transition: var(--transition);
@@ -36,10 +34,10 @@ const Wrapper = styled.article`
   .job-category__icon {
     width: 80px;
     height: 80px;
-    background-color: var(--white);
+    background-color: var(--grey-50);
     border-radius: 50px;
     display: inline-block;
-    box-shadow: 0px 15px 60px rgba(54, 127, 255, 0.1);
+    box-shadow: 0px 15px 60px rgba(251, 53, 53, 0.122);
     line-height: 80px;
     text-align: center;
     margin-bottom: 2rem;
@@ -48,27 +46,17 @@ const Wrapper = styled.article`
       border-style: none;
       width: 35px;
       height: 35px;
-      color: var(--green);
+      color: var(--secondary-300);
     }
   }
   .job-category__title {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 1.25rem;
+    font-weight: 500;
     margin-bottom: 1rem;
   }
   .job-category__text {
-    line-height: 30px;
+    line-height: 20px;
     letter-spacing: var(--letter-spacing);
     color: var(--grey-400);
-    margin-bottom: 1rem;
-  }
-  .job-category__btn {
-    background-color: transparent;
-    border: none;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 1rem;
-    color: var(--primary-500);
-    cursor: pointer;
   }
 `;

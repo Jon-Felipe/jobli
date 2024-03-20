@@ -57,27 +57,28 @@ function Home({}: Props) {
           </div>
         </div>
       </section>
+      {/* job category section */}
+      <section className='category'>
+        <div className='category__container'>
+          <header>
+            <h3 className='category__title'>Popular Job Categories</h3>
+            <p className='category__text'>
+              We have jobs for all categories. Browse over 1000 jobs now and
+              find your dream job today!
+            </p>
+          </header>
+          <div className='category__cards'>
+            {jobCategories.map((jobCategory) => (
+              <JobCategoryCard key={jobCategory.id} jobCategory={jobCategory} />
+            ))}
+          </div>
+        </div>
+      </section>
       {/* services section */}
       <section className='services'>
         <div className='services-content'>
           {services.map((service) => (
             <ServiceCard key={service.id} service={service} />
-          ))}
-        </div>
-      </section>
-      {/* job category section */}
-      <section className='category'>
-        <header>
-          <h3 className='category__title'>Browse From Top Categories</h3>
-          <p className='category__text'>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi,
-            minus repellat velit saepe deserunt autem ad alias perspiciatis vero
-            nulla beatae assumenda atque esse quo.
-          </p>
-        </header>
-        <div className='category__cards'>
-          {jobCategories.map((jobCategory) => (
-            <JobCategoryCard key={jobCategory.id} jobCategory={jobCategory} />
           ))}
         </div>
       </section>
@@ -106,7 +107,8 @@ const Wrapper = styled.div`
     background-color: #e4f0ed;
     padding: 8rem 2rem;
   }
-  .hero__container {
+  .hero__container,
+  .category__container {
     display: block;
     max-width: 1320px;
     margin: 0 auto;
@@ -134,6 +136,27 @@ const Wrapper = styled.div`
   .hero__image {
     display: none;
   }
+  .category {
+    text-align: center;
+    background-color: var(--white);
+    padding: 8rem 2rem;
+  }
+  .category__title {
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+  }
+  .category__text {
+    max-width: 800px;
+    margin: 0 auto;
+    letter-spacing: var(--letter-spacing);
+    line-height: 25px;
+    color: var(--grey-400);
+  }
+  .category__cards {
+    display: grid;
+    gap: 2rem;
+    margin-top: 80px;
+  }
   .services {
     background-color: var(--primary-500);
   }
@@ -148,28 +171,6 @@ const Wrapper = styled.div`
     p {
       color: var(--white);
     }
-  }
-  .category {
-    text-align: center;
-    background-color: var(--white);
-    padding: 4rem 2rem;
-  }
-  .category__title {
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-  }
-  .category__text {
-    max-width: 800px;
-    margin: 0 auto;
-    letter-spacing: var(--letter-spacing);
-    line-height: 25px;
-    color: var(--grey-400);
-  }
-  .category__cards {
-    display: grid;
-    gap: 2rem;
-    max-width: 1320px;
-    margin: 80px auto;
   }
   .recent-jobs {
     background-color: var(--white);
@@ -190,6 +191,12 @@ const Wrapper = styled.div`
     row-gap: 2rem;
     max-width: 1320px;
     margin: 2rem auto;
+  }
+  @media (min-width: 768px) {
+    .category__cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
   @media (min-width: 1024px) {
     .hero__container {
@@ -214,12 +221,11 @@ const Wrapper = styled.div`
         object-fit: cover;
       }
     }
+    .category__cards {
+      grid-template-columns: repeat(3, 1fr);
+    }
     .services-content {
       grid-template-columns: repeat(4, 1fr);
-    }
-    .category__cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
     }
     .recent-jobs__cards {
       grid-template-columns: 1fr 1fr;
