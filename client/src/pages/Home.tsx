@@ -12,6 +12,7 @@ import Spinner from '../components/Spinner';
 import heroImg from '../assets/images/hero_img.svg';
 import { jobCategories, services } from '../utils/constants';
 import { Job } from '../utils/types';
+import FormRowInput from '../components/FormRowInput';
 
 type Props = {};
 
@@ -23,20 +24,37 @@ function Home({}: Props) {
     <Wrapper>
       {/* hero section */}
       <section className='hero'>
-        <div className='hero-actions'>
-          <h5>Easiest way to find a perfect job</h5>
-          <h1>Find Your Next Dream Job</h1>
-          <div className='hero__btns'>
-            <Link to='/jobs' className='btn'>
-              Looking For A Job?
-            </Link>
-            <button type='button' className='btn'>
-              Find Talent
-            </button>
+        <div className='hero__container'>
+          <div className='hero__content'>
+            <h2 className='hero__content-title'>
+              There Are <span>{data?.jobs?.length}</span> Postings Here For You!
+            </h2>
+            <h6 className='hero__content-subtitle'>
+              Find Jobs, Employment & Career Opportunities
+            </h6>
+            <form className='hero__content__search'>
+              <FormRowInput
+                type='text'
+                name='search'
+                value=''
+                onChange={() => console.log('search')}
+                placeholder='Job title, keywords or company'
+              />
+              <FormRowInput
+                type='text'
+                name='city'
+                value=''
+                onChange={() => console.log('city')}
+                placeholder='City or postcode'
+              />
+              <button type='submit' className='btn hero__content__search-btn'>
+                Find Jobs
+              </button>
+            </form>
           </div>
-        </div>
-        <div className='hero__image'>
-          <img src={heroImg} alt='job search image' />
+          <div className='hero__image'>
+            <img src={heroImg} alt='job search image' />
+          </div>
         </div>
       </section>
       {/* services section */}
@@ -64,7 +82,7 @@ function Home({}: Props) {
         </div>
       </section>
       {/* recent jobs */}
-      <section className='recent-jobs'>
+      {/* <section className='recent-jobs'>
         <h4 className='recent-jobs__title'>Recently Added Jobs</h4>
         <h1 className='recent-jobs__subtitle'>Featured Jobs</h1>
         {isLoading ? (
@@ -76,7 +94,7 @@ function Home({}: Props) {
             ))}
           </div>
         )}
-      </section>
+      </section> */}
     </Wrapper>
   );
 }
@@ -85,34 +103,33 @@ export default Home;
 
 const Wrapper = styled.div`
   .hero {
-    padding: 2rem;
+    background-color: #e4f0ed;
+    padding: 8rem 2rem;
+  }
+  .hero__container {
     display: block;
     max-width: 1320px;
-    margin: 80px auto;
+    margin: 0 auto;
   }
-  .hero-actions {
-    h5 {
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
-      color: var(--grey-400);
-    }
-    h1 {
-      font-weight: 500;
-      margin-bottom: 2rem;
+  .hero__content-title {
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+    text-transform: capitalize;
+    span {
+      color: var(--primary-500);
     }
   }
-  .hero__btns {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    row-gap: 1rem;
-    button,
-    a {
-      text-align: center;
-      width: 100%;
-      padding: 1rem;
-      text-transform: uppercase;
-      font-weight: 600;
-    }
+  .hero__content-subtitle {
+    font-weight: 400;
+    font-size: 0.85rem;
+    color: var(--grey-400);
+    text-transform: capitalize;
+    margin-bottom: 2rem;
+  }
+  .hero__content__search-btn {
+    margin-top: 2rem;
   }
   .hero__image {
     display: none;
@@ -175,16 +192,20 @@ const Wrapper = styled.div`
     margin: 2rem auto;
   }
   @media (min-width: 1024px) {
-    .hero {
+    .hero__container {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 2fr 500px;
       column-gap: 4rem;
     }
-    .hero__btns {
-      grid-template-columns: 2fr 1fr;
-      grid-template-rows: 0fr 0fr;
-      column-gap: 2rem;
-      row-gap: 0rem;
+    .hero__content-title {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+    .hero__content-subtitle {
+      font-size: 1.2rem;
+    }
+    .hero__content__search-btn {
+      font-size: 1.2rem;
     }
     .hero__image {
       display: block;
