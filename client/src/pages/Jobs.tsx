@@ -43,6 +43,13 @@ function Jobs({}: Props) {
           placeholder='City or postcode'
         />
         <Select label='Category' name='jobType' values={jobCategories} />
+        <div className='filters__jobType'>
+          <h3 className='filters__jobType-title'>Job Type</h3>
+          <Checkbox label='Freelancer' name='freelancer' />
+          <Checkbox label='Full Time' name='fullTime' />
+          <Checkbox label='Part Time' name='partTime' />
+          <Checkbox label='Temporary' name='temporary' />
+        </div>
       </div>
       {/* jobs */}
       <section className='jobs'>
@@ -79,6 +86,16 @@ const Wrapper = styled.div`
   display: grid;
   .filters {
     display: none;
+  }
+  .filters__jobType {
+    margin: 1rem 0;
+  }
+  .filters__jobType-title {
+    display: block;
+    text-transform: capitalize;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: var(--letter-spacing);
   }
   .jobs__header {
     display: flex;
