@@ -26,7 +26,8 @@ function Home({}: Props) {
         <div className='hero__container'>
           <div className='hero__content'>
             <h2 className='hero__content-title'>
-              There Are <span>{data?.jobs?.length}</span> Postings Here For You!
+              There Are <span>{data?.jobs?.length || 0}</span> Postings Here For
+              You!
             </h2>
             <h6 className='hero__content-subtitle'>
               Find Jobs, Employment & Career Opportunities
