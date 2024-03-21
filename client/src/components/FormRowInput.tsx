@@ -37,6 +37,7 @@ export default FormRowInput;
 
 const Wrapper = styled.div`
   margin: 1.25rem 0;
+  width: 100%;
   label {
     display: block;
     text-transform: capitalize;

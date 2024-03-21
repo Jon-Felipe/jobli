@@ -37,7 +37,7 @@ const Wrapper = styled.article`
     background-color: var(--grey-50);
     border-radius: 50px;
     display: inline-block;
-    box-shadow: 0px 15px 60px rgba(251, 53, 53, 0.122);
+    box-shadow: 0px 15px 60px rgba(172, 53, 251, 0.122);
     line-height: 80px;
     text-align: center;
     margin-bottom: 2rem;
@@ -46,7 +46,7 @@ const Wrapper = styled.article`
       border-style: none;
       width: 35px;
       height: 35px;
-      color: var(--secondary-300);
+      color: var(--primary-300);
     }
   }
   .job-category__title {

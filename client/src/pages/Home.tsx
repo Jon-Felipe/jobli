@@ -32,22 +32,24 @@ function Home({}: Props) {
             <h6 className='hero__content-subtitle'>
               Find Jobs, Employment & Career Opportunities
             </h6>
-            <form className='hero__content__search'>
-              <FormRowInput
-                type='text'
-                name='search'
-                value=''
-                onChange={() => console.log('search')}
-                placeholder='Job title, keywords or company'
-              />
-              <FormRowInput
-                type='text'
-                name='city'
-                value=''
-                onChange={() => console.log('city')}
-                placeholder='City or postcode'
-              />
-              <button type='submit' className='btn hero__content__search-btn'>
+            <form className='hero__search'>
+              <div className='hero__search-inputs'>
+                <FormRowInput
+                  type='text'
+                  name='search'
+                  value=''
+                  onChange={() => console.log('search')}
+                  placeholder='Job title, keywords or company'
+                />
+                <FormRowInput
+                  type='text'
+                  name='city'
+                  value=''
+                  onChange={() => console.log('city')}
+                  placeholder='City or postcode'
+                />
+              </div>
+              <button type='submit' className='btn hero__search-btn'>
                 Find Jobs
               </button>
             </form>
@@ -130,7 +132,13 @@ const Wrapper = styled.div`
     text-transform: capitalize;
     margin-bottom: 2rem;
   }
-  .hero__content__search-btn {
+  .hero__search-inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .hero__search-btn {
     margin-top: 2rem;
   }
   .hero__image {
@@ -211,7 +219,11 @@ const Wrapper = styled.div`
     .hero__content-subtitle {
       font-size: 1.2rem;
     }
-    .hero__content__search-btn {
+    .hero__search-inputs {
+      flex-direction: row;
+      column-gap: 1rem;
+    }
+    .hero__search-btn {
       font-size: 1.2rem;
     }
     .hero__image {
