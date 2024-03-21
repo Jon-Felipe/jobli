@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import { useGetAllJobsQuery } from '../slices/jobsApiSlice';
 
@@ -15,7 +16,9 @@ import FormRowInput from '../components/FormRowInput';
 type Props = {};
 
 function Jobs({}: Props) {
-  const { data, isLoading } = useGetAllJobsQuery({});
+  const [limit, setLimit] = useState<number>();
+
+  const { data, isLoading, isFetching } = useGetAllJobsQuery({ limit });
 
   return (
     <Wrapper>
@@ -37,7 +40,13 @@ function Jobs({}: Props) {
           onChange={() => console.log('city')}
           placeholder='City or postcode'
         />
-        <Select label='Category' name='jobType' values={categoryOptions} />
+        <Select
+          label='Category'
+          name='jobType'
+          value={''}
+          onChange={() => console.log('first')}
+          options={categoryOptions}
+        />
         <div className='filters__jobType'>
           <h3 className='filters__jobType-title'>Job Type</h3>
           <Checkbox label='Freelancer' name='freelancer' />
@@ -55,13 +64,19 @@ function Jobs({}: Props) {
           <div className='jobs__sort'>
             <Select
               name='sort'
-              values={sortOptions}
-              defaultText='Sort by (default)'
+              value={''}
+              onChange={() => console.log('first')}
+              options={sortOptions}
             />
-            <Select name='limit' values={limitOptions} defaultText='All' />
+            <Select
+              name='limit'
+              value={limit}
+              onChange={(e) => setLimit(Number(e.target.value))}
+              options={limitOptions}
+            />
           </div>
         </div>
-        {isLoading ? (
+        {isLoading || isFetching ? (
           <Spinner />
         ) : (
           <div className='jobs__content'>

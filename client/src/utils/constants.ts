@@ -1,4 +1,4 @@
-import { Category, JobCategory, Service, Sort } from './types';
+import { CategoryOptions, JobCategory, Service, SortOptions } from './types';
 import {
   BsBoxes,
   BsCodeSlash,
@@ -78,55 +78,55 @@ export const services: Service[] = [
   },
 ];
 
-export const sortOptions: Sort[] = [
+export const sortOptions: SortOptions[] = [
   {
     id: 1,
-    title: 'newest',
+    value: 'newest',
   },
   {
     id: 2,
-    title: 'oldest',
+    value: 'oldest',
   },
   {
     id: 3,
-    title: 'a-z',
+    value: 'a-z',
   },
   {
     id: 4,
-    title: 'z-a',
+    value: 'z-a',
   },
 ];
 
-export const limitOptions: Sort[] = [
+export const limitOptions: SortOptions[] = [
   {
     id: 1,
-    title: '10 per page',
+    value: 10,
   },
   {
     id: 2,
-    title: '20 per page',
+    value: 20,
   },
   {
     id: 3,
-    title: '30 per page',
+    value: 30,
   },
 ];
 
-export const categoryOptions: Category[] = [
+export const categoryOptions: CategoryOptions[] = [
   {
     id: 1,
-    title: 'all',
+    value: 'all',
   },
   {
     id: 2,
-    title: 'development',
+    value: 'development',
   },
   {
     id: 3,
-    title: 'design',
+    value: 'design',
   },
   {
     id: 4,
-    title: 'finance',
+    value: 'finance',
   },
 ];

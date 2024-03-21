@@ -1,23 +1,25 @@
 import styled from 'styled-components';
 
 // extras
-import { Select as SelectType } from '../utils/types';
+import { SelectOptions } from '../utils/types';
 
 type Props = {
   label?: string;
   name: string;
-  values: SelectType[];
-  defaultText?: string;
+  value: React.SelectHTMLAttributes<HTMLSelectElement>['value'];
+  onChange: React.SelectHTMLAttributes<HTMLSelectElement>['onChange'];
+  options: SelectOptions[];
 };
 
-function Select({ label, name, values, defaultText }: Props) {
+function Select({ label, name, value, onChange, options }: Props) {
   return (
     <Wrapper>
       {label && <label htmlFor={name}>{label}</label>}
-      <select name={name} id={name}>
-        {defaultText && <option value=''>{defaultText}</option>}
-        {values.map((item) => (
-          <option key={item.id}>{item.title}</option>
+      <select id={name} name={name} value={value} onChange={onChange}>
+        {options.map((item) => (
+          <option key={item.id} value={item.value}>
+            {item.value}
+          </option>
         ))}
       </select>
     </Wrapper>

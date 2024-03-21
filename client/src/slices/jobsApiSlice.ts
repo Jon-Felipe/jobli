@@ -3,8 +3,8 @@ import { apiSlice } from './apiSlice';
 export const jobsApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getAllJobs: builder.query({
-      query: () => ({
-        url: '/jobs',
+      query: ({ limit }) => ({
+        url: `/jobs?limit=${limit}`,
         method: 'GET',
       }),
       keepUnusedDataFor: 5,
