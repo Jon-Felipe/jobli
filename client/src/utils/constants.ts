@@ -154,6 +154,21 @@ export const sortOptions: Sort[] = [
   },
 ];
 
+export const limitOptions: Sort[] = [
+  {
+    id: 1,
+    title: '10 per page',
+  },
+  {
+    id: 2,
+    title: '20 per page',
+  },
+  {
+    id: 3,
+    title: '30 per page',
+  },
+];
+
 export const categoryOptions: Category[] = [
   {
     id: 1,

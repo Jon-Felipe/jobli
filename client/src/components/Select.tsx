@@ -25,6 +25,7 @@ function Select({ label, name, values }: Props) {
 export default Select;
 
 const Wrapper = styled.div`
+  width: 100%;
   label {
     display: block;
     text-transform: capitalize;

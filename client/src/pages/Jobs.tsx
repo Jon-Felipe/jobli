@@ -8,7 +8,7 @@ import Checkbox from '../components/Checkbox';
 import Spinner from '../components/Spinner';
 
 // extras
-import { categoryOptions, sortOptions } from '../utils/constants';
+import { categoryOptions, limitOptions, sortOptions } from '../utils/constants';
 import { Job } from '../utils/types';
 import FormRowInput from '../components/FormRowInput';
 
@@ -52,6 +52,7 @@ function Jobs({}: Props) {
           <p>{data?.totalJobs || 0} Jobs found</p>
           <div className='jobs__sort'>
             <Select name='sort' values={sortOptions} />
+            <Select name='limit' values={limitOptions} />
           </div>
         </div>
         {isLoading ? (
@@ -98,14 +99,8 @@ const Wrapper = styled.div`
   .jobs__sort {
     display: flex;
     align-items: center;
-    column-gap: 0.5rem;
-  }
-  .jobs__sort-text {
-    width: 80px;
-    h6 {
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
+    column-gap: 1rem;
+    width: 300px;
   }
   .jobs__content {
     display: grid;
