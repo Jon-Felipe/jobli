@@ -36,6 +36,7 @@ const Wrapper = styled.div`
   select {
     display: block;
     width: 100%;
+    text-transform: capitalize;
     padding: 1rem;
     border: 1px solid var(--grey-300);
     border-radius: var(--border-radius);

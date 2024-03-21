@@ -1,4 +1,3 @@
-import { BsFilter } from 'react-icons/bs';
 import styled from 'styled-components';
 import { useGetAllJobsQuery } from '../slices/jobsApiSlice';
 
@@ -9,11 +8,7 @@ import Checkbox from '../components/Checkbox';
 import Spinner from '../components/Spinner';
 
 // extras
-import {
-  categoryOptions,
-  jobCategories,
-  sortOptions,
-} from '../utils/constants';
+import { categoryOptions, sortOptions } from '../utils/constants';
 import { Job } from '../utils/types';
 import FormRowInput from '../components/FormRowInput';
 
@@ -42,7 +37,7 @@ function Jobs({}: Props) {
           onChange={() => console.log('city')}
           placeholder='City or postcode'
         />
-        <Select label='Category' name='jobType' values={jobCategories} />
+        <Select label='Category' name='jobType' values={categoryOptions} />
         <div className='filters__jobType'>
           <h3 className='filters__jobType-title'>Job Type</h3>
           <Checkbox label='Freelancer' name='freelancer' />
