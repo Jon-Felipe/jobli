@@ -53,7 +53,7 @@ const Wrapper = styled.div`
     border: 1px solid var(--grey-300);
     border-radius: var(--border-radius);
     background-color: var(--white);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     letter-spacing: var(--letter-spacing);
     &::placeholder {
       text-transform: capitalize;

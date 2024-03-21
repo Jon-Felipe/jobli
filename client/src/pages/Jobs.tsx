@@ -53,8 +53,12 @@ function Jobs({}: Props) {
             Show <span>{data?.totalJobs || 0}</span> jobs
           </p>
           <div className='jobs__sort'>
-            <Select name='sort' values={sortOptions} />
-            <Select name='limit' values={limitOptions} />
+            <Select
+              name='sort'
+              values={sortOptions}
+              defaultText='Sort by (default)'
+            />
+            <Select name='limit' values={limitOptions} defaultText='All' />
           </div>
         </div>
         {isLoading ? (
@@ -108,7 +112,7 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     column-gap: 1rem;
-    width: 300px;
+    width: 350px;
   }
   .jobs__content {
     display: grid;

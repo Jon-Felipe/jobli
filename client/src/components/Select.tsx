@@ -7,13 +7,15 @@ type Props = {
   label?: string;
   name: string;
   values: SelectType[];
+  defaultText?: string;
 };
 
-function Select({ label, name, values }: Props) {
+function Select({ label, name, values, defaultText }: Props) {
   return (
     <Wrapper>
       {label && <label htmlFor={name}>{label}</label>}
       <select name={name} id={name}>
+        {defaultText && <option value=''>{defaultText}</option>}
         {values.map((item) => (
           <option key={item.id}>{item.title}</option>
         ))}
@@ -42,7 +44,7 @@ const Wrapper = styled.div`
     border: 1px solid var(--grey-300);
     border-radius: var(--border-radius);
     background-color: var(--white);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     letter-spacing: var(--letter-spacing);
     color: var(--grey-600);
     cursor: pointer;
