@@ -167,13 +167,13 @@ const Wrapper = styled.div`
   }
   .services {
     background-color: var(--primary-500);
+    padding: 4rem 2rem;
   }
   .services-content {
     display: grid;
     gap: 2rem;
-    padding: 4rem 0;
     max-width: 1320px;
-    margin: 80px auto;
+    margin: 0px auto;
     svg,
     h3,
     p {
