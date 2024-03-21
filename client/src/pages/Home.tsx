@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { useGetAllJobsQuery } from '../slices/jobsApiSlice';
 
 // components
@@ -59,6 +58,28 @@ function Home({}: Props) {
           </div>
         </div>
       </section>
+      {/* recent jobs */}
+      <section className='recent-jobs'>
+        <h4 className='recent-jobs__title'>Recently Added Jobs</h4>
+        <h1 className='recent-jobs__subtitle'>Featured Jobs</h1>
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <div className='recent-jobs__cards'>
+            {recentlyAddedJobs.map((job: Job) => (
+              <JobCard key={job._id} job={job} />
+            ))}
+          </div>
+        )}
+      </section>
+      {/* services section */}
+      <section className='services'>
+        <div className='services-content'>
+          {services.map((service) => (
+            <ServiceCard key={service.id} service={service} />
+          ))}
+        </div>
+      </section>
       {/* job category section */}
       <section className='category'>
         <div className='category__container'>
@@ -76,28 +97,6 @@ function Home({}: Props) {
           </div>
         </div>
       </section>
-      {/* services section */}
-      <section className='services'>
-        <div className='services-content'>
-          {services.map((service) => (
-            <ServiceCard key={service.id} service={service} />
-          ))}
-        </div>
-      </section>
-      {/* recent jobs */}
-      {/* <section className='recent-jobs'>
-        <h4 className='recent-jobs__title'>Recently Added Jobs</h4>
-        <h1 className='recent-jobs__subtitle'>Featured Jobs</h1>
-        {isLoading ? (
-          <Spinner />
-        ) : (
-          <div className='recent-jobs__cards'>
-            {recentlyAddedJobs.map((job: Job) => (
-              <JobCard key={job._id} job={job} />
-            ))}
-          </div>
-        )}
-      </section> */}
     </Wrapper>
   );
 }
