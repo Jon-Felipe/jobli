@@ -16,7 +16,8 @@ import FormRowInput from '../components/FormRowInput';
 type Props = {};
 
 function Jobs({}: Props) {
-  const [limit, setLimit] = useState<number>();
+  const [sort, setSort] = useState<string>('newest');
+  const [limit, setLimit] = useState<number>(10);
 
   const { data, isLoading, isFetching } = useGetAllJobsQuery({ limit });
 
@@ -64,8 +65,8 @@ function Jobs({}: Props) {
           <div className='jobs__sort'>
             <Select
               name='sort'
-              value={''}
-              onChange={() => console.log('first')}
+              value={sort}
+              onChange={(e) => setSort(e.target.value)}
               options={sortOptions}
             />
             <Select
