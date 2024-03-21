@@ -12,7 +12,7 @@ type Props = {
 function Select({ label, name, values }: Props) {
   return (
     <Wrapper>
-      <label htmlFor={name}>{label || name}</label>
+      {label && <label htmlFor={name}>{label}</label>}
       <select name={name} id={name}>
         {values.map((item) => (
           <option key={item.id}>{item.title}</option>

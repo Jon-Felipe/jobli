@@ -51,9 +51,6 @@ function Jobs({}: Props) {
         <div className='jobs__header'>
           <p>{data?.totalJobs || 0} Jobs found</p>
           <div className='jobs__sort'>
-            <div className='jobs__sort-text'>
-              <h6>Sort by</h6>
-            </div>
             <Select name='sort' values={sortOptions} />
           </div>
         </div>
