@@ -151,9 +151,9 @@ const Wrapper = styled.div`
     margin-bottom: 2rem;
   }
   .register__actions {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
-    justify-content: space-between;
     margin-top: 2rem;
   }
   .register__signin {
