@@ -41,8 +41,8 @@ const Wrapper = styled.div`
   label {
     display: block;
     text-transform: capitalize;
-    font-size: 1.25rem;
-    color: var(--grey-600);
+    font-size: 1rem;
+    font-weight: 600;
     letter-spacing: var(--letter-spacing);
     margin-bottom: 1rem;
   }
@@ -52,11 +52,12 @@ const Wrapper = styled.div`
     padding: 1rem;
     border: 1px solid var(--grey-300);
     border-radius: var(--border-radius);
-    background-color: var(--grey-50);
+    background-color: var(--white);
     font-size: 0.85rem;
     letter-spacing: var(--letter-spacing);
     &::placeholder {
       text-transform: capitalize;
+      color: var(--grey-600);
     }
   }
 `;
