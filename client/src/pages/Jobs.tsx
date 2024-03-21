@@ -49,7 +49,9 @@ function Jobs({}: Props) {
       {/* jobs */}
       <section className='jobs'>
         <div className='jobs__header'>
-          <p>{data?.totalJobs || 0} Jobs found</p>
+          <p className='jobs__header-title'>
+            Show <span>{data?.totalJobs || 0}</span> jobs
+          </p>
           <div className='jobs__sort'>
             <Select name='sort' values={sortOptions} />
             <Select name='limit' values={limitOptions} />
@@ -95,6 +97,12 @@ const Wrapper = styled.div`
     align-items: center;
     justify-content: space-between;
     margin-bottom: 2rem;
+  }
+  .jobs__header-title {
+    font-size: 0.85rem;
+    span {
+      font-weight: 700;
+    }
   }
   .jobs__sort {
     display: flex;
