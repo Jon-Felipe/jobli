@@ -19,7 +19,18 @@ function Jobs({}: Props) {
   const [sort, setSort] = useState<string>('newest');
   const [limit, setLimit] = useState<number | undefined>(undefined);
 
-  const { data, isLoading, isFetching } = useGetAllJobsQuery({ limit });
+  const { isLoading, isError, isFetching, isUninitialized, data } =
+    useGetAllJobsQuery({ limit });
+
+  if (isLoading || isUninitialized) {
+    return <Spinner />;
+  }
+
+  if (isError) {
+    return <p>Something went wrong</p>;
+  }
+
+  const { totalJobs, jobs } = data;
 
   return (
     <Wrapper>
@@ -60,7 +71,7 @@ function Jobs({}: Props) {
       <section className='jobs'>
         <div className='jobs__header'>
           <p className='jobs__header-title'>
-            Show <span>{data?.totalJobs || 0}</span> jobs
+            Show <span>{totalJobs || 0}</span> jobs
           </p>
           <div className='jobs__sort'>
             <Select
@@ -77,11 +88,11 @@ function Jobs({}: Props) {
             />
           </div>
         </div>
-        {isLoading || isFetching ? (
+        {isFetching ? (
           <Spinner />
         ) : (
           <div className='jobs__content'>
-            {data?.jobs?.map((job: Job) => (
+            {jobs?.map((job: Job) => (
               <JobCard key={job._id} job={job} />
             ))}
           </div>
