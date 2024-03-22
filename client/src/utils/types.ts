@@ -64,6 +64,7 @@ export type GetJobReturnType = {
 
 export type GetAllJobsArgType = {
   limit: number;
+  sort: string;
 };
 
 export type GetJobArgType = {

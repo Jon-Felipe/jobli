@@ -11,10 +11,10 @@ import {
 export const jobsApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getAllJobs: builder.query<GetAllJobsReturnType, GetAllJobsArgType>({
-      query: ({ limit }) => ({
+      query: ({ sort, limit }) => ({
         url: `/jobs`,
         method: 'GET',
-        params: { limit },
+        params: { sort, limit },
       }),
     }),
     getSingleJob: builder.query<GetJobReturnType, GetJobArgType>({

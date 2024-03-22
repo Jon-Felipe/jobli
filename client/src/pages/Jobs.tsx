@@ -21,7 +21,7 @@ function Jobs({}: Props) {
   const [limit, setLimit] = useState<number>(10);
 
   const { isLoading, isError, isFetching, isUninitialized, data } =
-    useGetAllJobsQuery({ limit });
+    useGetAllJobsQuery({ sort, limit });
 
   if (isLoading || isUninitialized) {
     return <Spinner />;

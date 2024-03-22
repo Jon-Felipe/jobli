@@ -18,6 +18,7 @@ type Props = {};
 
 function Home({}: Props) {
   const { isLoading, isError, isUninitialized, data } = useGetAllJobsQuery({
+    sort: 'newest',
     limit: 10,
   });
 
