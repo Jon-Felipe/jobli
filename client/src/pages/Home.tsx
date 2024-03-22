@@ -6,19 +6,31 @@ import JobCategoryCard from '../components/JobCategoryCard';
 import ServiceCard from '../components/ServiceCard';
 import JobCard from '../components/JobCard';
 import Spinner from '../components/Spinner';
+import FormRowInput from '../components/FormRowInput';
+import Error from '../components/Error';
 
 // extras
 import heroImg from '../assets/images/hero_img.svg';
 import { jobCategories, services } from '../utils/constants';
 import { Job } from '../utils/types';
-import FormRowInput from '../components/FormRowInput';
 
 type Props = {};
 
 function Home({}: Props) {
-  const { data, isLoading } = useGetAllJobsQuery({});
+  const { isLoading, isError, isUninitialized, data } = useGetAllJobsQuery({
+    limit: 10,
+  });
 
-  const recentlyAddedJobs = data?.jobs?.slice(0, 6);
+  if (isLoading || isUninitialized) {
+    return <Spinner />;
+  }
+
+  if (isError) {
+    return <Error />;
+  }
+
+  const { totalJobs, jobs } = data;
+
   return (
     <Wrapper>
       {/* hero section */}
@@ -26,8 +38,7 @@ function Home({}: Props) {
         <div className='hero__container'>
           <div className='hero__content'>
             <h2 className='hero__content-title'>
-              There Are <span>{data?.jobs?.length || 0}</span> Postings Here For
-              You!
+              There Are <span>{totalJobs || 0}</span> Postings Here For You!
             </h2>
             <h6 className='hero__content-subtitle'>
               Find Jobs, Employment & Career Opportunities
@@ -67,7 +78,7 @@ function Home({}: Props) {
           <Spinner />
         ) : (
           <div className='recent-jobs__cards'>
-            {recentlyAddedJobs.map((job: Job) => (
+            {jobs.slice(0, 6)?.map((job: Job) => (
               <JobCard key={job._id} job={job} />
             ))}
           </div>

@@ -57,5 +57,5 @@ export type GetAllJobsReturnType = {
 };
 
 export type GetAllJobsArgType = {
-  limit: number | undefined;
+  limit: number;
 };

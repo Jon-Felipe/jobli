@@ -18,7 +18,7 @@ type Props = {};
 
 function Jobs({}: Props) {
   const [sort, setSort] = useState<string>('newest');
-  const [limit, setLimit] = useState<number | undefined>(undefined);
+  const [limit, setLimit] = useState<number>(10);
 
   const { isLoading, isError, isFetching, isUninitialized, data } =
     useGetAllJobsQuery({ limit });
