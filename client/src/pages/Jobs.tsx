@@ -7,11 +7,12 @@ import JobCard from '../components/JobCard';
 import Select from '../components/Select';
 import Checkbox from '../components/Checkbox';
 import Spinner from '../components/Spinner';
+import FormRowInput from '../components/FormRowInput';
+import Error from '../components/Error';
 
 // extras
 import { categoryOptions, limitOptions, sortOptions } from '../utils/constants';
 import { Job } from '../utils/types';
-import FormRowInput from '../components/FormRowInput';
 
 type Props = {};
 
@@ -27,7 +28,7 @@ function Jobs({}: Props) {
   }
 
   if (isError) {
-    return <p>Something went wrong</p>;
+    return <Error />;
   }
 
   const { totalJobs, jobs } = data;
