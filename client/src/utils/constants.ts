@@ -104,15 +104,19 @@ export const sortOptions: SelectOptionType[] = [
 export const limitOptions: SelectOptionType[] = [
   {
     id: 1,
-    value: 10,
+    value: 4,
   },
   {
     id: 2,
-    value: 20,
+    value: 6,
   },
   {
     id: 3,
-    value: 30,
+    value: 8,
+  },
+  {
+    id: 4,
+    value: 10,
   },
 ];
 
