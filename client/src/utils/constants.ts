@@ -1,4 +1,4 @@
-import { CategoryOptions, JobCategory, Service, SortOptions } from './types';
+import { JobCategory, Service, SelectOptions } from './types';
 import {
   BsBoxes,
   BsCodeSlash,
@@ -78,7 +78,7 @@ export const services: Service[] = [
   },
 ];
 
-export const sortOptions: SortOptions[] = [
+export const sortOptions: SelectOptions[] = [
   {
     id: 1,
     value: 'newest',
@@ -97,7 +97,7 @@ export const sortOptions: SortOptions[] = [
   },
 ];
 
-export const limitOptions: SortOptions[] = [
+export const limitOptions: SelectOptions[] = [
   {
     id: 1,
     value: 10,
@@ -112,7 +112,7 @@ export const limitOptions: SortOptions[] = [
   },
 ];
 
-export const categoryOptions: CategoryOptions[] = [
+export const categoryOptions: SelectOptions[] = [
   {
     id: 1,
     value: 'all',

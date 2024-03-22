@@ -16,11 +16,6 @@ export type Service = {
 
 type JobNature = 'internship' | 'part-time' | 'full-time';
 
-export type SelectOptions = {
-  id: number;
-  value: string | number;
-};
-
 export type Job = {
   _id: string;
   jobTitle: string;
@@ -31,12 +26,7 @@ export type Job = {
   jobNature: JobNature;
 };
 
-export type SortOptions = {
-  id: number;
-  value: string | number;
-};
-
-export type CategoryOptions = {
+export type SelectOptions = {
   id: number;
   value: string | number;
 };
