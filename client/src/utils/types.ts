@@ -50,3 +50,12 @@ export type UserPayload = {
   firstName: string;
   lastName: string;
 };
+
+export type GetAllJobsReturnType = {
+  totalJobs: number;
+  jobs: Array<Job>;
+};
+
+export type GetAllJobsArgType = {
+  limit: number | undefined;
+};

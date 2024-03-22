@@ -1,8 +1,11 @@
 import { apiSlice } from './apiSlice';
 
+// extras
+import { GetAllJobsArgType, GetAllJobsReturnType } from '../utils/types';
+
 export const jobsApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    getAllJobs: builder.query({
+    getAllJobs: builder.query<GetAllJobsReturnType, GetAllJobsArgType>({
       query: ({ limit }) => ({
         url: `/jobs`,
         method: 'GET',
