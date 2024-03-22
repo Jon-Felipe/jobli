@@ -5,6 +5,7 @@ import { useGetSingleJobQuery } from '../slices/jobsApiSlice';
 
 // components
 import Spinner from '../components/Spinner';
+import Error from '../components/Error';
 
 // extras
 import { currencyNumberFormat } from '../utils/helpers';
@@ -13,11 +14,19 @@ type Props = {};
 
 function SingleJob({}: Props) {
   const { id } = useParams();
-  const { data, isLoading } = useGetSingleJobQuery(id);
+  const { isLoading, isError, isUninitialized, data } = useGetSingleJobQuery({
+    id,
+  });
 
-  if (isLoading) {
+  if (isLoading || isUninitialized) {
     return <Spinner />;
   }
+
+  if (isError) {
+    return <Error />;
+  }
+
+  const { job } = data;
 
   return (
     <Wrapper>
@@ -30,22 +39,20 @@ function SingleJob({}: Props) {
               <FaRegBuilding />
             </div>
             <div className='job__company'>
-              <h3 className='job__company-title'>{data?.job?.jobTitle}</h3>
+              <h3 className='job__company-title'>{job?.jobTitle}</h3>
               <div className='job__company-details'>
-                <p>{data?.job?.companyName}</p>
+                <p>{job?.companyName}</p>
                 <p>
-                  <FaMapMarkerAlt /> {data?.job?.location}{' '}
+                  <FaMapMarkerAlt /> {job?.location}{' '}
                 </p>
-                <p>{currencyNumberFormat(data?.job?.salary)}</p>
+                <p>{currencyNumberFormat(job?.salary)}</p>
               </div>
             </div>
           </header>
           {/* job body */}
           <div className='job__description'>
             <h5 className='job__description--title'>Job Description</h5>
-            <p className='job__description--text'>
-              {data?.job?.jobDescription}
-            </p>
+            <p className='job__description--text'>{job?.jobDescription}</p>
           </div>
         </article>
         <article className='skills'>
@@ -53,7 +60,7 @@ function SingleJob({}: Props) {
             Required Knowledge, Skills, and Abilities
           </h3>
           <div className='skills__list'>
-            {data?.job?.requiredSkills.map((skill: string, index: number) => {
+            {job?.requiredSkills.map((skill: string, index: number) => {
               return (
                 <ul key={index}>
                   <li>{skill}</li>
@@ -65,7 +72,7 @@ function SingleJob({}: Props) {
         <article className='experience'>
           <h3 className='experience--title'>Experience</h3>
           <div className='experience__list'>
-            {data?.job?.experience.map((experience: string, index: number) => {
+            {job?.experience.map((experience: string, index: number) => {
               return (
                 <ul key={index}>
                   <li>{experience}</li>

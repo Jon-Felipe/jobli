@@ -20,6 +20,8 @@ export type Job = {
   _id: string;
   jobTitle: string;
   jobDescription: string;
+  requiredSkills: Array<string>;
+  experience: Array<string>;
   companyName: string;
   location: string;
   salary: number;
@@ -56,6 +58,14 @@ export type GetAllJobsReturnType = {
   jobs: Array<Job>;
 };
 
+export type GetJobReturnType = {
+  job: Job;
+};
+
 export type GetAllJobsArgType = {
   limit: number;
+};
+
+export type GetJobArgType = {
+  id: string | undefined;
 };
