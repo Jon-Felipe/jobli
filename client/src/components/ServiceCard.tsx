@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 // extras
-import { Service } from '../utils/types';
+import { ServiceOfferType } from '../utils/types';
 
 type Props = {
-  service: Service;
+  service: ServiceOfferType;
 };
 
 function ServiceCard({ service }: Props) {

@@ -1,22 +1,22 @@
 import { IconType } from 'react-icons/lib';
 
-export type JobCategory = {
+export type JobCategoryCardType = {
   id: number;
   icon: IconType;
   title: string;
   text: string;
 };
 
-export type Service = {
+export type ServiceOfferType = {
   id: number;
   icon: IconType;
   title: string;
   text: string;
 };
 
-type JobNature = 'internship' | 'part-time' | 'full-time';
+type JobNatureType = 'internship' | 'part-time' | 'full-time';
 
-export type Job = {
+export type JobType = {
   _id: string;
   jobTitle: string;
   jobDescription: string;
@@ -25,10 +25,10 @@ export type Job = {
   companyName: string;
   location: string;
   salary: number;
-  jobNature: JobNature;
+  jobNature: JobNatureType;
 };
 
-export type SelectOptions = {
+export type SelectOptionType = {
   id: number;
   value: string | number;
 };
@@ -46,7 +46,7 @@ export type LoginUserType = {
   password: string;
 };
 
-export type UserPayload = {
+export type UserPayloadType = {
   _id: string;
   email: string;
   firstName: string;
@@ -55,11 +55,11 @@ export type UserPayload = {
 
 export type GetAllJobsReturnType = {
   totalJobs: number;
-  jobs: Array<Job>;
+  jobs: Array<JobType>;
 };
 
 export type GetJobReturnType = {
-  job: Job;
+  job: JobType;
 };
 
 export type GetAllJobsArgType = {

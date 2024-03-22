@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 // extras
-import { SelectOptions } from '../utils/types';
+import { SelectOptionType } from '../utils/types';
 
 type Props = {
   label?: string;
   name: string;
   value: React.SelectHTMLAttributes<HTMLSelectElement>['value'];
   onChange: React.SelectHTMLAttributes<HTMLSelectElement>['onChange'];
-  options: SelectOptions[];
+  options: SelectOptionType[];
 };
 
 function Select({ label, name, value, onChange, options }: Props) {

@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { UserPayload } from '../utils/types';
+import { UserPayloadType } from '../utils/types';
 
 interface UserState {
-  userInfo: UserPayload;
+  userInfo: UserPayloadType;
 }
 
 const initialState: UserState = {

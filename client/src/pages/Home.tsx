@@ -12,7 +12,7 @@ import Error from '../components/Error';
 // extras
 import heroImg from '../assets/images/hero_img.svg';
 import { jobCategories, services } from '../utils/constants';
-import { Job } from '../utils/types';
+import { JobType } from '../utils/types';
 
 type Props = {};
 
@@ -78,7 +78,7 @@ function Home({}: Props) {
           <Spinner />
         ) : (
           <div className='recent-jobs__cards'>
-            {jobs.slice(0, 6)?.map((job: Job) => (
+            {jobs.slice(0, 6)?.map((job: JobType) => (
               <JobCard key={job._id} job={job} />
             ))}
           </div>

@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 // extras
-import { JobCategory } from '../utils/types';
+import { JobCategoryCardType } from '../utils/types';
 
 type Props = {
-  jobCategory: JobCategory;
+  jobCategory: JobCategoryCardType;
 };
 
 const JobCategoryCard = ({ jobCategory }: Props) => {

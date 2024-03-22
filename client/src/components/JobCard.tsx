@@ -8,10 +8,10 @@ import {
 import styled from 'styled-components';
 
 // extras
-import { Job } from '../utils/types';
+import { JobType } from '../utils/types';
 
 type Props = {
-  job: Job;
+  job: JobType;
 };
 
 function JobCard({ job }: Props) {

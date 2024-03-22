@@ -12,7 +12,7 @@ import Error from '../components/Error';
 
 // extras
 import { categoryOptions, limitOptions, sortOptions } from '../utils/constants';
-import { Job } from '../utils/types';
+import { JobType } from '../utils/types';
 
 type Props = {};
 
@@ -93,7 +93,7 @@ function Jobs({}: Props) {
           <Spinner />
         ) : (
           <div className='jobs__content'>
-            {jobs?.map((job: Job) => (
+            {jobs?.map((job: JobType) => (
               <JobCard key={job._id} job={job} />
             ))}
           </div>

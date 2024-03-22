@@ -1,4 +1,8 @@
-import { JobCategory, Service, SelectOptions } from './types';
+import {
+  JobCategoryCardType,
+  ServiceOfferType,
+  SelectOptionType,
+} from './types';
 import {
   BsBoxes,
   BsCodeSlash,
@@ -12,7 +16,7 @@ import {
   BsAward,
 } from 'react-icons/bs';
 
-export const jobCategories: JobCategory[] = [
+export const jobCategories: JobCategoryCardType[] = [
   {
     id: 1,
     icon: BsBoxes,
@@ -51,7 +55,7 @@ export const jobCategories: JobCategory[] = [
   },
 ];
 
-export const services: Service[] = [
+export const services: ServiceOfferType[] = [
   {
     id: 1,
     icon: BsPersonVcard,
@@ -78,7 +82,7 @@ export const services: Service[] = [
   },
 ];
 
-export const sortOptions: SelectOptions[] = [
+export const sortOptions: SelectOptionType[] = [
   {
     id: 1,
     value: 'newest',
@@ -97,7 +101,7 @@ export const sortOptions: SelectOptions[] = [
   },
 ];
 
-export const limitOptions: SelectOptions[] = [
+export const limitOptions: SelectOptionType[] = [
   {
     id: 1,
     value: 10,
@@ -112,7 +116,7 @@ export const limitOptions: SelectOptions[] = [
   },
 ];
 
-export const categoryOptions: SelectOptions[] = [
+export const categoryOptions: SelectOptionType[] = [
   {
     id: 1,
     value: 'all',
