@@ -4,19 +4,16 @@ export const jobsApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getAllJobs: builder.query({
       query: ({ limit }) => ({
-        url: `/jobs?limit=${limit}`,
+        url: `/jobs`,
         method: 'GET',
+        params: { limit },
       }),
-      keepUnusedDataFor: 5,
-      providesTags: ['Jobs'],
     }),
     getSingleJob: builder.query({
       query: (id) => ({
         url: `/jobs/${id}`,
         method: 'GET',
       }),
-      keepUnusedDataFor: 5,
-      providesTags: ['Jobs'],
     }),
   }),
 });
