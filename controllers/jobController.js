@@ -7,7 +7,7 @@ import { NotFoundError } from '../errors/customErrors.js';
 // @route   GET /api/v1/jobs
 // @access  Public
 export const getAllJobs = async (req, res) => {
-  const { sort } = req.query;
+  const { sort, limit } = req.query;
 
   const sortOptions = {
     newest: '-createdAt',
@@ -17,10 +17,9 @@ export const getAllJobs = async (req, res) => {
   };
 
   const sortKey = sortOptions[sort] || sortOptions.newest;
+  const limitKey = limit || 10;
 
-  const limit = Number(req.query.limit) || 10;
-
-  const jobs = await Job.find({}).sort(sortKey).limit(limit);
+  const jobs = await Job.find({}).sort(sortKey).limit(limitKey);
   const totalJobs = await Job.countDocuments();
 
   res.status(StatusCodes.OK).json({ totalJobs, jobs });
