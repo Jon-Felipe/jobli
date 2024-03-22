@@ -144,11 +144,12 @@ const Wrapper = styled.div`
   }
   .jobs__content {
     display: grid;
-    row-gap: 1rem;
+    row-gap: 1.5rem;
   }
   @media (min-width: 1024px) {
     grid-template-columns: 350px 1fr;
     column-gap: 2rem;
+    padding: unset;
     .filters {
       display: block;
       background-color: rgba(243, 199, 252, 0.1);
